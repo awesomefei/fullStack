@@ -95,8 +95,8 @@ console.log("!!!!!");
 
   //var x = canvas.width / 2;
   //var y = canvas.height - 20;
-  var dx = 20;
-  var dy = -20;
+  var iconSizeX = 20;
+  var iconSizeY = 20;
 
   function drawZombie() {
 
@@ -111,14 +111,30 @@ console.log("!!!!!");
 function draw(){
     ctx.clearRect(zombiePositionX, zombiePositionY, zombiePositionX+20, zombiePositionY+20);
 
-     if(zombiePositionX + dx > canvas.width - 20 || zombiePositionX + dx < 20){
-       dx = -dx;
+     if(zombiePositionX + iconSizeX > canvas.width - 20 || zombiePositionX + iconSizeX < 20){
+       iconSizeX = -iconSizeX;
      }
-     if(zombiePositionY + dy > canvas.height - 20 || zombiePositionY + dy < 20){
-       dy = -dy;
+     if(zombiePositionY + iconSizeY > canvas.height - 20 || zombiePositionY + iconSizeY < 20){
+       iconSizeY = -iconSizeY;
      }
-     zombiePositionX += dx;
-     zombiePositionY += dy;
+
+     switch(Math.floor(Math.random()*4)){
+       case 0:
+        zombiePositionX += iconSizeX;
+        break;
+      case 1:
+        zombiePositionX -= iconSizeX;
+        break;
+      case 2:
+        zombiePositionY += iconSizeY;
+        break;
+      case 3:
+        zombiePositionY -= iconSizeY;
+          break;
+
+     }
+
+
     // console.log("draw");
      drawZombie();
 }
