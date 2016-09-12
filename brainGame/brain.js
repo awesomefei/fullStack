@@ -13,8 +13,8 @@ var heroPostionX = 0;
 var heroPostionY = 0;
 var zombie = new Image();
 zombie.src = "http://forum.reapermini.com/public/style_emoticons/default/zombie13.gif";
-var ZOMBIE_START_POSITION_X = 100;
-var ZOMBIE_START_POSITION_Y = 100;
+var ZOMBIE_START_POSITION_X = canvas.width / 2;
+var ZOMBIE_START_POSITION_Y = canvas.height - 20;
 var zombiePositionX = ZOMBIE_START_POSITION_X;
 var zombiePositionY = ZOMBIE_START_POSITION_Y;
 var burger = new Image();
@@ -23,9 +23,9 @@ var xb = 100;
 var yb = 120;
 window.addEventListener('load', function () {
     console.log("!!!!!");
-    move();
     ctx.drawImage(hero, heroPostionX, heroPostionY);
     ctx.drawImage(burger, xb, yb);
+    move();
 });
 document.addEventListener('keydown', function (e) {
     ctx.clearRect(heroPostionX, heroPostionY, 20, 20);
@@ -48,13 +48,18 @@ document.addEventListener('keydown', function (e) {
             hero.style.left = heroPostionY + 'px';
             break;
     }
-    if (heroPostionX == zombiePositionX && heroPostionY == zombiePositionY) {
+    console.log("hero position: " + heroPostionX + "," + heroPostionY);
+    if (Math.abs(heroPostionX - zombiePositionX) <= iconSizeX / 2
+        && Math.abs(heroPostionY - zombiePositionY) <= iconSizeY / 2) {
         ctx.drawImage(zombie, zombiePositionX, zombiePositionY);
         console.log("dead");
         alert("You are dead! Game over!");
         isAlive = false;
     }
     else {
+        console.log("tmd zombie " + zombiePositionX + "," + zombiePositionY);
+        console.log("tmd hero " + heroPostionX + ", " + heroPostionY);
+        console.log("tmd");
         if (isAlive) {
             ctx.drawImage(hero, heroPostionX, heroPostionY);
         }
@@ -70,27 +75,43 @@ function drawZombie() {
 }
 function draw() {
     ctx.clearRect(zombiePositionX, zombiePositionY, zombiePositionX + 20, zombiePositionY + 20);
-    if (zombiePositionX + iconSizeX > canvas.width - 20 || zombiePositionX + iconSizeX < 20) {
-        iconSizeX = -iconSizeX;
-    }
-    if (zombiePositionY + iconSizeY > canvas.height - 20 || zombiePositionY + iconSizeY < 20) {
-        iconSizeY = -iconSizeY;
-    }
     switch (Math.floor(Math.random() * 4)) {
         case 0:
-            zombiePositionX += iconSizeX;
+            if (zombiePositionX + iconSizeX >= canvas.width) {
+                zombiePositionX -= iconSizeX;
+            }
+            else {
+                zombiePositionX += iconSizeX;
+            }
             break;
         case 1:
-            zombiePositionX -= iconSizeX;
+            if (zombiePositionX <= 0) {
+                zombiePositionX += iconSizeX;
+            }
+            else {
+                zombiePositionX -= iconSizeX;
+            }
             break;
         case 2:
-            zombiePositionY += iconSizeY;
+            if (zombiePositionY + iconSizeY >= canvas.height) {
+                zombiePositionY -= iconSizeY;
+            }
+            else {
+                zombiePositionY += iconSizeY;
+            }
             break;
         case 3:
-            zombiePositionY -= iconSizeY;
+            if (zombiePositionY <= 0) {
+                zombiePositionY += iconSizeY;
+            }
+            else {
+                zombiePositionY -= iconSizeY;
+            }
             break;
     }
-    drawZombie();
+    if (isAlive) {
+        drawZombie();
+    }
 }
 function move() {
     draw();
