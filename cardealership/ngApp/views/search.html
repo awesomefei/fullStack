@@ -1,0 +1,23 @@
+<h1>Search html</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <input type="text" class='form-control' ng-model='carMake' name="carMake" placeholder="search for a car by make...">
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-3" ng-repeat='c in controller.cars|filter.carMake'>
+
+
+            <img
+            ng-src="{{c.ImageUrl}}" class='img-responsive img-rounded carImg'
+            alt="carImg"
+            ng-click='controller.getCarsDetails((c.id))' />
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,19 @@
+
+<h2>    {{controller.message}}</h2>
+
+<select ng-model='selectedMake'
+    ng-options="c.name for c in controller.carMakes">
+
+</select>
+<h1>{{selectedMake}}</h1>
+
+<div class="row">
+    <div class="col-md-3" ng-repeat="c in controller.cars|filter:{CarMakeId: selectedMake.id}">
+        <img
+        ng-src="{{c.ImageUrl}}"
+        alt="carImg"
+        calss='img-resposive img-rounded carImg'
+        ng-click='carDetailsController.getCarDetials(c.id)'/>
+    </div>
+
+</div>
