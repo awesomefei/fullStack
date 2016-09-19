@@ -9,13 +9,11 @@ namespace cardealership.Services{
     export class CarService implements ICarService{
         private carResource;
         private carMakesResource;
-        constructor()
-            //private $resource:ng.resource.IResourceService){
-{
+        constructor(private $resource:ng.resource.IResourceService){
             //assign $resource object that connects to /api/cars/:id to carResource
 
-            //this.carResource = $resource('/api/cars/:id');
-            //this.carMakesResource=$resource('/api/makes');
+            this.carResource = $resource('/api/cars/:id');
+            this.carMakesResource=$resource('/api/makes');
         }
          getCarsOnService(){
             return this.carResource.query();

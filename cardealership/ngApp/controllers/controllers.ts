@@ -6,15 +6,16 @@ namespace cardealership.Controllers {
         public cars;
 
         constructor(
-            private carsService:cardealership.Services.ICarService,
-            private $uibModal: ng.ui.bootstrap.IModalService) {
-            //this.cars = carsService.getCarsOnService();
-            //this.carMakes = carsService.getCarMakesOnService();
-            }
+            private $uibModal: ng.ui.bootstrap.IModalService,
+            private carService:cardealership.Services.ICarService,
+        ){
+            this.cars = carService.getCarsOnService();
+            this.carMakes = carService.getCarMakesOnService();
+        }
 
-        getCarDetials(id){
+        getCarDetails(id){
             this.$uibModal.open({
-                templateUrl:'/ngApp/vires/carDetails.html',
+                templateUrl:'/ngApp/views/carDetails.html',
                 controller:cardealership.Controllers.CarDetailsController,
                 controllerAs:'carDetailsController',
                 resolve:{

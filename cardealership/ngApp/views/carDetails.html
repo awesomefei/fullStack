@@ -1,12 +1,12 @@
 <div ng-show="!controller.isEditMode">
     <div class="modal-header">
-        <h1>{{controller.car.ShortDescription}}</h1>
+        <h1>{{carDetailsController.car.ShortDescription}}</h1>
     </div>
 
     <div class="modal-body">
         <img ng-src="{{controller.car.ImageUrl}}" class="img-responsive img-rounded" alt="" />
-        <h4>Director: {{controller.car.FullDescription}}</h4>
-        <h4>Price: {{controller.car.Price}}</h4>
+        <h4>FullDescription: {{carDetailsController.car.FullDescription}}</h4>
+        <h4>Price: {{carDetailsController.car.Price}}</h4>
     </div>
 
     <div class="modal-footer">
