@@ -1,0 +1,36 @@
+<h1>Hello from MenueCreat html</h1>
+<h1>Create a new course</h1>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <form ng-submit='vm.saveMenue()' name="menueForm" novalidate="">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" ng-model='vm.menue.title'
+                class="form-control" ng-required='true'>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" ng-model="vm.menue.category" class="form-control"
+                required=''>
+            </div>
+
+            <div class="form-group">
+                <label for="imageUrl">Image Url</label>
+                <input type="text" ng-model='vm.menue.imageUrl'  class="form-control"
+                required=''>
+
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit"   class="btn btn-primary btn-block btn-sm"
+                value="Save Menue" ng-disabled='movieForm.$invalid'>
+                <input type="button" ng-model='vm.menue.imageUrl'  class="btn btn-danger btn-block btn-sm"
+                required=''>
+
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,56 @@
+<h1>List of Menue</h1>
+
+<h3>
+    <a href="/menueCreate">Create a new course...</a>
+</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <input type="text" placeholder="search for menue"ng-model='menueTitle' class="form-control movie">
+
+            </div>
+        </div>
+
+        <!-- <table class="table table-border">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Speicy
+                </th>
+                <th>
+                    price
+                </th>
+                <th>
+                    <i class="fa fa-cog" aria-hiddern='true'></i>
+                </th>
+            </tr>
+            <tr ng-repeat='m in controller.menues'>
+                <td>
+                    {{m.name}}
+                </td>
+                <td>
+                    {{m.speicy}}
+                </td>
+                <td>
+                    {{m.price}}
+                </td>
+                <td>
+                    <button class="btn btn-danger btn-sm" name="button"
+                    ng-click='controller.deleteMenue(m.id)'>Delete</button>
+                    <button class="btn btn-warning btn-sm" name="button"
+                    ng-click='controller.gotoEditPage(m.id)'>Edit</button>
+                </td>
+            </tr>
+
+        </table> -->
+</div>
+<div class="col-md-3" ng-repteat='m in vm.menues|flter:menueTitle'>
+    <img
+        ng-src='{{m.menueUrl}}'
+        class="img-resposive img-circile menueImg"
+        ng-click="image"
+        alt="image" />
+</div>
