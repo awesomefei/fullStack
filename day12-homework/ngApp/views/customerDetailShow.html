@@ -1,0 +1,24 @@
+<div ng-show="!controller.isEditMode">
+
+
+<div class="modal-header">
+    <h1>{{controller.customer.firstName}} {{ controller.customer.secondName}}</h1>
+</div>
+
+<div class="modal-body">
+
+    <img ng-src="{{controller.customer.url}}" class='img-responsive img-rounded' alt="" />
+    <h4>Age:{{controller.customer.age}}</h4>
+</div>
+
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-block btn-success btn-sm" name="button"
+                ng-click='controller.closeModal()'>Close</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

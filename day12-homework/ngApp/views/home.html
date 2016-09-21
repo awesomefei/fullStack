@@ -1,0 +1,86 @@
+<h2>List of customers</h2>
+<p>
+    {{controller.message}}
+</p>
+<h3>
+    <a href="/save">Create a new movie...</a>
+</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    firstName
+                </th>
+                <th>
+                    secondName
+                </th>
+                <th>
+                    age
+                </th>
+
+
+                <th>
+                    <i class='fa fa-cog' aria-hidden='true'></i>
+                </th>
+
+            </tr>
+            <tr ng-repeat='c in controller.customers'>
+                <td>
+                    {{c.firstName}}
+                </td>
+                <td>
+                    {{c.secondName}}
+                </td>
+                <td>
+                    {{c.age}}
+                </td>
+
+                <td>
+                    <button class="btn btn-danger btn-sm" name="button"
+                    ng-click='controller.deleteCustomer(c.id)'>Delete</button>
+
+                    <button class="btn btn-warning btn-sm" name="button"
+                    ng-click='controller.toggleEditMode()'>Edit</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
+<div ng-show="controller.isEditMode">
+    <div class="modal-header">
+
+    </div>
+    <div class="modal-body">
+        <form ng-submit="controller.saveCustomer()">
+            <div class="form-group">
+                <label for="firstName">FirstName</label>
+                <input type="text" class="fomr-control" ng-model='controller.customer.firstName'>
+            </div>
+
+            <div class="form-group">
+                <label for="secondName">SecondName</label>
+                <input type="text" class="fomr-control" ng-model='controller.customer.secondName'>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="text" class="fomr-control" ng-model='controller.customer.age'>
+            </div>
+
+            <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" class="fomr-control" ng-model='controller.customer.url'>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class='btn btn-primary btn-block btn-sm' value="save">
+                <input type="button" class="btn btn-danger btn-block btn-sm" ng-click='controller.cancelSave()' value="Cancel">
+            </div>
+        </form>
+    </div>
+
+</div>
