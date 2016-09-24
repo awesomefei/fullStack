@@ -5,21 +5,25 @@ namespace individualProject.Services{
         getMenueOnServiceSide(menueId);
         saveMenueOnServiceSide(menueToSave);
         deleteMenueOnServerSide(menueId);
+        getContriesOnServiceSide();
     }
 
 
     export  class MenueService implements IMenueService{
         private menueResource;
+        private contriesResource;
         constructor(private $resource:ng.resource.IResourceService){
-            this.menueResource = $resource('/api/movies/:id');
+
+            this.menueResource = $resource('/api/foods/:id');
+            this.contriesResource = $resource('/api/countries/:id');
         }
         //read
         getMenuesOnServiceSide(){
-            return this.menueResource.query();
+            return this.menueResource.query().$promise;
         }
         //update - use create method
         getMenueOnServiceSide(menueId){
-            return this.menueResource.get({id:menueId});
+            return this.menueResource.get({id:menueId}).$promise;
         }
         //create
         saveMenueOnServiceSide(menueToSave){
@@ -30,6 +34,10 @@ namespace individualProject.Services{
             return this.menueResource.delete({id:menueId}).$promise;
         }
 
+        getContriesOnServiceSide(){
+            return this.contriesResource.query();
+        }
+
     }
-    angular.module('day8_homework').service('menueService', MenueService);
+    angular.module('individualProject').service('menueService', MenueService);
 }

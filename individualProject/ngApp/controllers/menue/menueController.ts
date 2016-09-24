@@ -1,16 +1,32 @@
 namespace individualProject.Controllers{
     export class MenueController{
         public message="Hello from menuController";
-        public menues;
+        public menues = [];
 
         constructor(
             private $state:ng.ui.IStateService,
+            private $uibModal: ng.ui.bootstrap.IModalService,
             private menueService:individualProject.Services.MenueService){
             this.getMenues();
             }
 
         getMenues(){
-            this.menues = this.menueService.getMenuesOnServiceSide();
+            this.menueService.getMenuesOnServiceSide()
+            .then((menueArr) =>{
+                let i;
+                let k;
+                let cols =4;
+                for(i = 0, k = -1; i < menueArr.length; i++){
+                    if(i % cols == 0){
+                        k++;
+                        this.menues[k] = [];
+                    }
+                    this.menues[k].push(menueArr[i]);
+                }
+                console.log(this.menues);
+            });
+
+            //this.menues = this.menueService.getMenuesOnServiceSide();
         }
 
         goToEiditPage(menueId){
@@ -29,6 +45,21 @@ namespace individualProject.Controllers{
             })
 
 
+        }
+
+        getMenueDetails(id){
+            this.$uibModal.open({
+                templateUrl:'/ngApp/views/menueDetail.html',
+                controller:individualProject.Controllers.MenueDetailController,
+                controllerAs:'controller',
+                resolve:{
+                    customerId:()=>{
+                        return id;
+
+                    }
+                },
+                size:'sm'
+            });
         }
 
     }

@@ -1,0 +1,14 @@
+<h1>{{vm.message}}</h1>
+
+<select ng-model="selectedContry" ng-options="c.country for c in vm.contries"></select>
+
+
+<div class="row form-group">
+    <div class="col-md-3 ng-repeat = 'c in vm.contries|filter:{contryId:selectedContry.id}' form-group">
+        <img
+        ng-src="{{c.ImageUrl}}"
+        alt="location info"
+        class='img-responsive img-rounded'
+        ng-click='controller.getCarDetails(c.id)'/>
+    </div>
+</div>

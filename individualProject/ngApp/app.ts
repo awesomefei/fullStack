@@ -28,9 +28,16 @@ namespace individualProject {
             })
 
             .state('menueCreate', {
-                url:'/meneu/create',
+                url:'/create',
                 templateUrl:'/ngApp/views/menueCreate.html',
                 controller:individualProject.Controllers.MenueCreateController,
+                controllerAs:'vm'
+            })
+
+            .state('contact', {
+                url:'/contact',
+                templateUrl:'/ngApp/views/contact.html',
+                controller:individualProject.Controllers.MenueContactController,
                 controllerAs:'vm'
             })
 

@@ -5,17 +5,11 @@ import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
-import Database from './db';
 
 import routes from './routes/index';
 import users from './routes/users';
-import foodRouter from './routes/foodRouter';
-import countryRouter from './routes/countryRouter';
-
 
 let app = express();
-
-Database.connect();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,8 +28,7 @@ app.use('/api', express.static(path.join(__dirname, 'api')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/api/foods', foodRouter);
-app.use('/api/countries', countryRouter);
+
 
 // APIs
 // app.use('/api', require('./api/makes'));

@@ -10,3 +10,9 @@
   width: 100%;
   height: 250px;
 }
+
+.foodImg {
+          cursor: pointer;
+          cursor: hand;
+          
+      }
