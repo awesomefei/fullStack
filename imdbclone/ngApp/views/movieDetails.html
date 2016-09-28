@@ -1,0 +1,35 @@
+<h1>{{vm.movie.title}}</h1>
+<div class="row">
+    <div class="col-sm-offset-3 col-sm-8">
+        <iframe width="560" height="315" ng-src="https://www.youtube.com/embed/38rPoGSr19U" frameborder="0" allowfullscreen>
+        </iframe>
+    </div>
+
+
+        <div class="col-sm-12">
+        <div class="panel-heading"><h2>User Comments:</h2></div>
+        <div class="well" ng-repeat='comment in vm.movie.comments'>
+            {{comment.message}}
+            <div class="timeCreate">
+                {{comment.timeCreate}}
+            </div>
+        </div>
+
+        <hr>
+        <div class="panel-heading"><h2>Leave your comment here:</h2></div>
+
+        <form ng-submit="vm.saveComment()">
+    <div class="form-group">
+        <div class="col-md-9">
+            <textarea type="text" class="form-control" ng-model="vm.comment.message" rows="8" cols="120" placeholder="leave a comment..."></textarea>
+            <!-- <textarea class="form-control" ng-model="vm.comment.message" rows="8" cols="40"></textarea> -->
+        </div>
+        <div class="col-md-3">
+            <input type="submit" class="btn btn-success btn-block btn-lg" value="Save">
+
+        </div>
+    </div>
+</form>
+</div>
+
+</div>
