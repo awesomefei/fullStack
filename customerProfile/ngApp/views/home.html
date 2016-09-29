@@ -1,0 +1,51 @@
+<h2>List of customers</h2>
+<p>
+    {{controller.message}}
+</p>
+<h3>
+    <a href="/save">Create a new customer...</a>
+</h3>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    firstName
+                </th>
+                <th>
+                    secondName
+                </th>
+                <th>
+                    age
+                </th>
+
+
+                <th>
+                    <i class='fa fa-cog' aria-hidden='true'></i>
+                </th>
+
+            </tr>
+            <tr ng-repeat='c in controller.customers'>
+                <td>
+                    {{c.firstName}}
+                </td>
+                <td>
+                    {{c.secondName}}
+                </td>
+                <td>
+                    {{c.age}}
+                </td>
+
+                <td>
+                    <button class="btn btn-danger btn-sm" name="button"
+                    ng-click='controller.deleteCustomer(c.id)'>Delete</button>
+
+                    <button class="btn btn-warning btn-sm" name="button"
+                    ng-click='controller.goToEditPage(c.id)'>Edit</button>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
