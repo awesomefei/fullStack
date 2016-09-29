@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo List</title>
+    <link href="list.css" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+  </head>
+  <body>
+    <div id="myDIV" class="header">
+  <h1>My To Do List</h1>
+  <input type="text" id="myInput" placeholder="Title...">
+  <span type = "button" onclick="newElement()" class="addBtn">Add</span>
+</div>
+<p></p>
+<ul id="myUL">
+  <li>Hit the gym</li>
+  <li >Pay bills</li>
+  <li>Meet George</li>
+  <li>Buy eggs</li>
+  <li>Read a book</li>
+  <li>Organize office</li>
+</ul>
+<div id="submit">
+  <div class="col-xs-10"></div>
+ <div class="col-xs-2"><button class="btn btn-primary" onclick="save()">
+   <span class="glyphicon glyphicon-plus-sign"></span> Save
+ </button></div>
+
+</div>
+<script type="text/javascript" src = "list.js">  </script>
+  </body>
+</html>
