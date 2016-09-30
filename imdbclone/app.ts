@@ -12,7 +12,7 @@ import routes from './routes/index';
 import users from './routes/users';
 import movieRoute from './routes/movieRoute';
 import commetRoute from './routes/commentRoute';
-
+import celebRoute from './routes/celebRoute';
 
 
 
@@ -39,6 +39,7 @@ app.use('/users', users);
 
 app.use('/api/movies', movieRoute);
 app.use('/api/comments', commetRoute);
+app.use('/api/celebs', celebRoute);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

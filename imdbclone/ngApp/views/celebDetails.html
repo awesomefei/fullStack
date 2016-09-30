@@ -1,0 +1,22 @@
+<header>
+    <h1>details celeb</h1>
+    <h1>{{vm.message}}</h1>
+    <hr>
+</header>
+
+
+<div class="row" >
+    <div class="col-sm-3">
+        <img src="{{vm.celeb.imageUrl}}" alt="imageUrl" height='180' width="150"/>
+
+    </div>
+    <div class="col-sm-5">
+        <a class="btn btn-lg btn-default btn-sm" href="#" >
+        <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true" ng-click='vm.likeCeleb()'></i>{{vm.celeb.like}}</a>
+        <a class="btn btn-lg btn-default btn-sm" ng-click='vm.dislikeCeleb()'>
+        <i class="fa fa-thumbs-o-down  fa-2x" aria-hidden="true" ></i>{{vm.celeb.dislike}}</a>
+
+    </div>
+
+</div>
+    

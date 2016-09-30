@@ -12,12 +12,16 @@ namespace imdbclone.Services{
                 }
             });
         }
+
         getMoviesOnService(){
             return this.movieResource.query();
         }
         getMovieOnService(movieId){
             return this.movieResource.get({id:movieId});
         }
+        // getCommentCountOnServiece(movieId){
+        //     return this.getMovieOnService(movieId).comments.length;
+        // }
         saveMovie(movie){
             return this.movieResource.save(movie).$promise;
         }

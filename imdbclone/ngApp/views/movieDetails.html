@@ -1,7 +1,8 @@
 <h1>{{vm.movie.title}}</h1>
 <div class="row">
     <div class="col-sm-offset-3 col-sm-8">
-        <iframe width="560" height="315" ng-src="https://www.youtube.com/embed/38rPoGSr19U" frameborder="0" allowfullscreen>
+        {{vm.movie.trailerUrl}}
+        <iframe width="560" height="315" src="{{vm.movie.trailerUrl}}" frameborder="10" allowfullscreen>
         </iframe>
     </div>
 
@@ -25,7 +26,7 @@
             <!-- <textarea class="form-control" ng-model="vm.comment.message" rows="8" cols="40"></textarea> -->
         </div>
         <div class="col-md-3">
-            <input type="submit" class="btn btn-success btn-block btn-lg" value="Save">
+            <input type="submit" class="btn btn-success btn-block btn-ml" value="leave a comment">
 
         </div>
     </div>

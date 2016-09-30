@@ -4,6 +4,7 @@ namespace imdbclone.Controllers{
         public movie;
         public comment = {};
         private movieId;
+        public commentCounter;
 
         constructor(
             private movieService: imdbclone.Services.MovieService,
@@ -12,7 +13,13 @@ namespace imdbclone.Controllers{
         ){
             this.movieId = this.$stateParams['id'];
             this.getMovie();
+            //this.getCommentCount();
         }
+        
+        // getCommentCount(){
+        //     console.log('_________________');
+        //     return this.movieService.getCommentCountOnServiece(this.movieId);
+        // }
 
         getMovie(){
             this.movie = this.movieService.getMovieOnService(this.movieId);

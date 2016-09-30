@@ -27,6 +27,18 @@ namespace imdbclone {
                 controller: imdbclone.Controllers.MovieDetailsController,
                 controllerAs: 'vm'
             })
+            .state('celebs', {
+                url:'/celebs',
+                templateUrl: '/ngApp/views/celebs.html',
+                controller: imdbclone.Controllers.CelebsController,
+                controllerAs: 'vm'
+            })
+            .state('celebDetails', {
+                url:'/celebs/:id',
+                templateUrl: '/ngApp/views/celebDetails.html',
+                controller: imdbclone.Controllers.CelebsController,
+                controllerAs: 'vm'
+            })
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'

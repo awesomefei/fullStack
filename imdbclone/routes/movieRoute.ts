@@ -6,6 +6,7 @@ import Comment from '../models/comment';
 let ObjectId = mongodb.ObjectID;
 let movieRoute = express.Router();
 
+
 movieRoute.get('/', (req, res) =>{
     Movie.find()
     .populate('comments')

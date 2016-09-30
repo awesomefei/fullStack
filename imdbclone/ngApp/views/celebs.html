@@ -1,0 +1,44 @@
+<header>
+    <a href="#"><h3>Create a new celeb here</h3></a>
+    <span class="form-group">
+        Sort by : <a href="#">A-Z</a>
+    </span>
+    <hr>
+</header>
+
+<div class="row">
+    <div class="col-sm-8">
+        <ol >
+            <h3>Most Popular Females/Males</h3>
+
+
+
+            <li ng-repeat='c in vm.celebs' class = 'well'>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <a href="/celebs/{{c._id}}"><img ng-src="{{c.imageUrl}}" alt="imageUrl" height='120px' width='80px'/></a>
+
+                    </div>
+                    <div class="col-sm-8">
+                        <a href="/celebs/{{c._id}}"><h4>{{c.firstName}} {{c.lastName}}</h4></a>
+
+
+
+                        <h4 id='multiline-text'>
+                            Career:
+
+                        </h4>
+                         <a href="#demo" class="btn btn-info btn-xs" data-toggle="collapse"> Read me</a>
+                        <div id="demo" class="collapse">
+                            {{c.career}}
+
+
+                        </div>
+                    </div>
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
