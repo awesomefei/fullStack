@@ -1,0 +1,41 @@
+<h1>List of Movies</h1>
+
+<h5>
+  <a href="/movieCreate">Create a new movie...</a>
+</h5>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-bordered">
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Director
+        </th>
+
+        <th>
+             <i class="fa fa-cog" aria-hidden="true"></i>
+        </th>
+      </tr>
+      <tr ng-repeat='m in controller.movies'>
+        <td>
+          {{m.title}}
+        </td>
+        <td>
+          {{m.director}}
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" name="button"
+          ng-click='controller.deleteMovie(m.id)'>Delete</button>
+
+          <button class="btn btn-warning btn-sm" name="button"
+           ng-click='controller.goToEditPage(m.id)'>Edit</button>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>

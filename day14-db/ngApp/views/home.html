@@ -1,0 +1,11 @@
+<h2>Home</h2>
+<p>
+    {{controller.message}}
+</p>
+{{controller.cars }}
+<ul>
+    <li ng-repeat='c in controller.cars'>
+        {{c.make}} - {{c.year}} - {{c.price}}
+    </li>
+
+</ul>

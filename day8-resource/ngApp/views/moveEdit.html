@@ -1,0 +1,25 @@
+<h1>This is moveEdit.html</h1>
+<h1>Edit movie here...</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <form ng-submit='controller.saveMovie()'>
+
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" ng-model="controller.movieToEdit.title" />
+      </div>
+
+      <div class="form-group">
+        <label for="director">Director</label>
+        <input type="text" class="form-control" ng-model="controller.movieToEdit.director" />
+      </div>
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btn-block ""   name="name" value="Edit Movie">
+        <input type="submit" class="btn btn-danger btn-block ""   name="name" value="Cancel">
+      </div>
+
+    </form>
+
+  </div>
+</div>

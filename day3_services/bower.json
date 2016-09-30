@@ -1,0 +1,20 @@
+{
+  "name": "myapp",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Ann <lifeiwanguk@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/awesomefei/fullStack",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8"
+  }
+}

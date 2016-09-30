@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body ng-controller="FoodController as food">
+        <ul>
+            <li ng-repeat="item in food.food|filter:{name:'i'}">{{item.name}}</li>
+        </ul>
+
+
+        <script src="node_modules/angular/angular.min.js" charset="utf-8"></script>
+        <script src="app.js" charset="utf-8"></script>
+        <script src="foodController.js" charset="utf-8"></script>
+    </body>
+</html>

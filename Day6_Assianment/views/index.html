@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='homeApp'>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body ng-controller = 'productController as vm'>
+    <h1>{{vm.message}}</h1>
+    <form ng-submit="vm.saveProduct()">
+
+      <input type="text" ng-model="vm.product.name" placeholder="name...">
+      <input type="text" ng-model="vm.product.price" placeholder="price...">
+      <input type="submit" value="Save">
+
+    </form>
+
+    <h1> {{vm.product.name}} || {{vm.product.price}}  </h1>
+
+    <ul>
+      <li ng-repeat = "item in vm.products">
+        {{item.name}} {{item.price}}
+      </li>
+    </ul>
+
+    <script type="text/javascript" src="/scripts/angular/angular.js">  </script>
+    <script type="text/javascript" src="app.js">  </script>
+    <script type="text/javascript" src="/controller/productController.js">  </script>
+  </body>
+</html>

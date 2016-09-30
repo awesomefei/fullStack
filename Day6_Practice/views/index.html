@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+  </head>
+  <body ng-controller='carController as vm'>
+    <h1{{vm.message}}</h1>
+    <form ng-submit='vm.saveCar()'>
+      <!-- input boxes -->
+
+      <input type="text" ng-model="vm.car.year" placeholder='car year...'>
+      <input type="text" ng-model="vm.car.make" placeholder='car make...'>
+      <input type="text" ng-model="vm.car.model" placeholder='car model...'>
+
+      <input type="submit" name="name" value="Save Car">
+
+    </form>
+
+<h3>{{vm.car.year}} | {{vm.car.make}} | {{vm.car.model}} | </h3>
+
+    <ul>
+      <li ng-repeat ='c in vm.cars'>
+        {{c.year}} {{c.make}} {{c.model}}
+      </li>
+    </ul>
+
+  <script type="text/javascript" src="/scripts/angular/angular.js">  </script>
+  <script type="text/javascript" src="app.js">  </script>
+  <script type="text/javascript" src="/controller/carController.js">  </script>
+  </body>
+</html>

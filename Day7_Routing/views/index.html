@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <base href='/' />
+    <meta charset="utf-8">
+    <title>
+    </title>
+    <link rel="stylesheet" href="/css/style.css" media="screen" title="no title">
+  </head>
+  <body ng-cloak>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/product">Product</a>
+    <ui-view></ui-view>
+
+    <script type="text/javascript" src="/scripts/angular/angular.js"> </script>
+    <script type="text/javascript" src="/scripts/angular-ui-router/release/angular-ui-router.js">  </script>
+    <script type="text/javascript" src="app.js">  </script>
+    <script src="/services/productService.js" charset="utf-8"></script>
+    <script src="/controllers/homeController.js" charset="utf-8"></script>
+      <script src="/controllers/aboutController.js" charset="utf-8"></script>
+      <script src="/controllers/productController.js" charset="utf-8"></script>
+
+  </body>
+</html>

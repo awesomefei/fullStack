@@ -1,0 +1,32 @@
+
+<h1>List of Cars</h1>
+
+<p>
+    <a href="/car/create"><i>Create a new car</i></a>
+</p>
+
+<select ng-model='selectedMake'
+    ng-options="c.name for c in c.cars">
+
+</select>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <input type="text" class="form-control" ng-model="carMake"
+            placeholder="search for a car...">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 view" ng-repeat='c in vm.cars' ng-show="vm.showCar">
+
+        <img
+        ng-src="{{c.ImageUrl}}"
+        class="img-responsive img-rounded carImg"
+        alt="Responsive image"
+        ng-click="vm.getCarDetails(c.id)">
+
+    </div>
+</div>

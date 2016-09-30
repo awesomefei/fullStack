@@ -1,0 +1,12 @@
+<h1>{{vm.book.title}}</h1>
+<h3>Price: {{vm.book.price}}</h3>
+<hr>
+<h3>List of Authors</h3>
+<p>
+    <a href="/addAuthorToBook/{{vm.movie._id}}">Add author here...</a>
+</p>
+<ul>
+    <li ng-repeat='b in vm.books.authors'>
+        {{b.firstName}} {{b.lastName}}
+    </li>
+</ul>

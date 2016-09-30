@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app='MyApp'>
+  <head>
+    <base href='/' />
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Hello</h1>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/diary">Diary</a>
+    <ui-view>  </ui-view>
+
+    <script type="text/javascript" src="/scripts/angular/angular.js"> </script>
+    <script type="text/javascript" src="/scripts/angular-ui-router/release/angular-ui-router.js">  </script>
+    <script type="text/javascript" src="app.js">  </script>
+    <script src="/services/diaryService.js" charset="utf-8"></script>
+    <script src="/controllers/homeController.js" charset="utf-8"></script>
+    <script src="/controllers/aboutController.js" charset="utf-8"></script>
+    <script src="/controllers/diaryController.js" charset="utf-8"></script>
+
+  </body>
+</html>

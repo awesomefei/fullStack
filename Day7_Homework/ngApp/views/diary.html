@@ -1,0 +1,10 @@
+<h1>Welcome to diary.html</h1>
+
+{{vm.message}}
+<ul>
+  <li ng-repeat='d in vm.diaries'>
+    <a href="/detail/{{d.id}}">
+      Article No.{{d.id}}
+    </a>
+  </li>
+</ul>
