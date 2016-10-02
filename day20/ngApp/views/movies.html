@@ -1,0 +1,27 @@
+<h1>List of Movies</h1>
+<table class = 'table'>
+    <tr>
+        <td>
+            Id
+        </td>
+
+        <td>
+            Title
+        </td>
+        <td>
+            Director
+        </td>
+    </tr>
+
+    <tr ng-repeat='m in vm.movies'>
+        <td>
+            {{m.id}}
+        </td>
+        <td>
+            {{m.title}}
+        </td>
+        <td>
+            {{m.director}}
+        </td>
+    </tr>
+</table>
