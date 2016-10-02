@@ -13,7 +13,7 @@ homeMovieRoute.get('/', (req, res) =>{
     HomeMovie.find()
     .populate('celebs')
     .populate('comments')
-    //.populate('direcor')
+    .populate('direcor')
 
     .then((homeMovies) =>{
         res.send(homeMovies);
@@ -25,7 +25,10 @@ homeMovieRoute.get('/', (req, res) =>{
 
 homeMovieRoute.get('/:id', (req, res) =>{
     HomeMovie.findById(req.params['id'])
-  // .populate('comments','director','celebs')
+    .populate('celebs')
+    .populate('comments')
+    .populate('direcor')
+   
 
     .then((homeMovie) =>{
          console.log("celebs : " + homeMovie.celebs);
@@ -108,15 +111,15 @@ homeMovieRoute.post('/adddirector/:homeMovieId', (req, res) =>{
 })
 
 homeMovieRoute.post('/addactor/:homeMovieId', (req, res)=>{
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
+    //console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
     let homeMovieId = new ObjectId(req.params['homeMovieId']);
     let actorId = new ObjectId(req.body.actorId);
 
-    console.log("actorId:" + actorId + ' ');
-    console.log("homeMovieId: " + homeMovieId);
+    //console.log("actorId:" + actorId + ' ');
+//    console.log("homeMovieId: " + homeMovieId);
     HomeMovie.update({_id:homeMovieId}, {$push:{celebs:actorId}})
     .then((homeMovie) =>{
-        console.log("homeMovie befroe send: "+ homeMovie.celebs);
+        //console.log("homeMovie befroe send: "+ homeMovie.celebs);
         res.send(homeMovie);
     })
     .catch((err) =>{

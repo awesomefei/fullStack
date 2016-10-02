@@ -1,10 +1,11 @@
 .container {
     padding-left: 3px !important;
     padding-right: 3px !important;
+
 }
 
 .container-div {
-    background-color:#fc7431;
+    background-color:#ffffff;
     min-height: 100%;
 }
 .timeCreate{
@@ -29,9 +30,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.darkGrey{
+    background-color:#262626;
 
+}
 body {
+    background: url('http://www.ovationtv.com/versailles/wp-content/uploads/2016/05/versailles-louisxiv-throne-1.jpg');
     background-color:#000000;
+    background-attachment: fixed;
     height: 100% !important;
     font-family: 'Open Sans', Arial, sans-serif;
 }

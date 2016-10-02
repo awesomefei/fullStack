@@ -10,7 +10,7 @@ export interface IHomeMovie extends mongoose.Document{
     rate:number;
     imageUrl:string;
 
-    director:Director.IDerector[];
+    director:Director.IDirector[];
     comments:Comment.IComment[];
     celebs: Celeb.ICeleb[];
 

@@ -13,7 +13,8 @@ import users from './routes/users';
 import movieRoute from './routes/movieRoute';
 import commetRoute from './routes/commentRoute';
 import celebRoute from './routes/celebRoute';
-
+import homeMovieRoute from './routes/homeMovieRoute';
+import directorRoute from './routes/directorRoute';
 
 
 Database.connect();
@@ -40,6 +41,8 @@ app.use('/users', users);
 app.use('/api/movies', movieRoute);
 app.use('/api/comments', commetRoute);
 app.use('/api/celebs', celebRoute);
+app.use('/api/homeMovies', homeMovieRoute);
+app.use('/api/directors', directorRoute);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

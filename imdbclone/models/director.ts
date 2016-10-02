@@ -1,9 +1,8 @@
 import * as mongoose from 'mongoose';
 import * as Movie from './movie';
 
-export interface IDerector extends mongoose.Document{
-    firstName:string;
-    lastName:string;
+export interface IDirector extends mongoose.Document{
+    name:string;
     imageUrl:string;
     agent:string;
     career:string;
@@ -12,28 +11,25 @@ export interface IDerector extends mongoose.Document{
 
 }
 
-let derectorSchema = new mongoose.Schema({
+let directorSchema = new mongoose.Schema({
 
     knownFor:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Movie'
     }],
 
-    firstName:{
+    name:{
         type:String,
         required:true
     },
-    lastName:{
-        type:String,
-        required:true
-    },
+
     imageUrl:{
         type:String,
-        required:true
+        required:false
     },
     agent:{
         type:String,
-        required:true
+        required:false
     },
 
     career:{
@@ -46,4 +42,4 @@ let derectorSchema = new mongoose.Schema({
     },
 
 })
-export default mongoose.model<IDerector>('Derector', derectorSchema);
+export default mongoose.model<IDirector>('Director', directorSchema);

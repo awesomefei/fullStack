@@ -1,9 +1,9 @@
 namespace imdbclone.Services{
     export class HomeMovieService{
         private homeMovieResource;
-        constructor)
+        constructor(
         $resource:ng.resource.IResourceService
-    }{
+    ){
         this.homeMovieResource = $resource('/api/homeMovies/:id', null, {
             saveComment:{
                 method:'POST',
@@ -19,17 +19,19 @@ namespace imdbclone.Services{
         return this.homeMovieResource.query();
     }
     getHomeMovieOnService(movieId){
-        return this.movieResource.get({id:movieId})
+        return this.homeMovieResource.get({id:movieId})
     }
     saveHomeMovieOnService(homeMovie){
-        return this.HomeMovieService.save(homeMovie).$promise;
+        return this.homeMovieResource.save(homeMovie).$promise;
     }
     deleteHomeMovie(id){
-        return this.HomeMovieService.delete({id:id}).$promise;
+        return this.homeMovieResource.delete({id:id}).$promise;
     }
+
     saveComment(homeMovieId, comment){
-        return this.movieResource.saveComment({homeMovieId:homeMovieId}, comment).$promise;
+        return this.homeMovieResource.saveComment({homeMovieId:homeMovieId}, comment).$promise;
     }
-    save
-    angular.module('imdbclone').service('homeMovieService', HomeMovieService)
+}
+
+    angular.module('imdbclone').service('homeMovieService', HomeMovieService);
 }

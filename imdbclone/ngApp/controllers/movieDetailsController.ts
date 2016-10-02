@@ -15,7 +15,7 @@ namespace imdbclone.Controllers{
             this.getMovie();
             //this.getCommentCount();
         }
-        
+
         // getCommentCount(){
         //     console.log('_________________');
         //     return this.movieService.getCommentCountOnServiece(this.movieId);
@@ -29,6 +29,9 @@ namespace imdbclone.Controllers{
             this.movieService.saveComment(this.movieId,this.comment)
             .then(() =>{
                 this.getMovie();
+            })
+            .then(()=>{
+                this.comment = '';
             })
         };
 

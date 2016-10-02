@@ -17,39 +17,39 @@ export interface ICeleb extends mongoose.Document{
 let celebSchema = new mongoose.Schema({
     like:{
         type:Number,
-        required:true
+        required:false
         },
     dislike:{
         type:Number,
-        required:true
+        required:false
         },
     firstName:{
         type:String,
-        required:true
+        required:false
     },
     lastName:{
         type:String,
-        required:true
+        required:false
     },
     imageUrl:{
         type:String,
-        required:true
+        required:false
     },
     agent:{
         type:String,
-        required:true
+        required:false
     },
     spouse:{
         type:String,
-        required:true
+        required:false
     },
     career:{
         type:String,
-        required:true
+        required:false
     },
     website:{
         type:String,
-        required:true
+        required:false
     },
     comments:[{
         type:mongoose.Schema.Types.ObjectId,
