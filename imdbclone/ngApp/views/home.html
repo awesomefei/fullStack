@@ -1,54 +1,45 @@
-<h1>test</h1>
-
 <div class="row">
     <div class="col-sm-7 ">
         <div class="darkGrey">
             <div class="row" >
-                <div class="col-sm-4">
 
+                <div class="col-sm-4">
                     <iframe width="100%" height="300" src="https://www.youtube.com/embed/NgZXnTZbF3g" frameborder="10" allowfullscreen>
                     </iframe>
-                </div >
+                </div>
+
                 <div class="col-sm-4">
                     <iframe width="100%" height="300" src="https://www.youtube.com/embed/D1JrMOiG5hc" frameborder="10" allowfullscreen>
                     </iframe>
                 </div>
+
                 <div class="col-sm-4">
                     <iframe width="100%" height="300" src="https://www.youtube.com/embed/ViuDsy7yb8M" frameborder="10" allowfullscreen>
                     </iframe>
                 </div>
             </div>
-            <p>
-                <a href="#">Browse more trailers </a><i class="fa fa-angle-double-right" aria-hidden="true"></i>
-            </p>
-        </div>
-        <div class="" id=''>
-            <hr style="height:1px;border:none;border-top:1px solid #555555;" />
-
-            <h3><a href="#">October Picks: Movies and TV Shows We Love</a></h3>
-            <div class="row">
-                <div class="col-sm-12">
-                    <p>
-                        hello
-                        {{controller.message}}<br>
-                        {{controller.girlMovie.trailerUrl}}
-                    </p>
-                    <youtube-video video-id="controller.girlMovie.trailerUrl"></youtube-video>
 
 
-                </div>
 
-            </div>
-
-            <p>
-                What will you be watching this month? From <a href="#">The Girl on the Train </a>and <a href="#">Inferno</a> to <a href="#">"The Walking Dead," </a>these are the movies and TV series IMDb Editors will be watching.
-
-            </p>
-            <hr style="height:1px;border:none;border-top:1px solid #555555;" />
-        </div>
-
+        <p>
+            <a href="#">Browse more trailers </a><i class="fa fa-angle-double-right" aria-hidden="true"></i>
+        </p>
     </div>
 
+    <div class="" id=''>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;" />
+        <h3><a href="#">October Picks: Movies and TV Shows We Love</a></h3>
+        <div class="row">
+            <div class="col-sm-12">
+                <youtube-video video-id="controller.girlMovie.trailerUrl"></youtube-video>
+            </div>
+        </div>
+        <p>
+            What will you be watching this month? From <a href="#">The Girl on the Train </a>and <a href="#">Inferno</a> to <a href="#">"The Walking Dead," </a>these are the movies and TV series IMDb Editors will be watching.
+        </p>
+        <hr style="height:1px;border:none;border-top:1px solid #555555;" />
+    </div>
+</div>
 
     <div class="col-sm-4 five" >
         <div class="row">
@@ -58,19 +49,14 @@
                 <div class='footer'>
                     <a href="#"><h8>ad feedback </h8></a>
                 </div>
-
                 <hr style="height:1px;border:none;border-top:1px solid #555555;" />
-
-
             </div>
-
         </div>
         <h3>Open this week</h3>
         <table class="table">
             <tr ng-repeat='h in controller.homeMovies'>
                 <td>
                     <i class="fa fa-plus-square fa-lg" aria-hidden="true"></i>
-
                 </td>
                 <td>
                     <a href="#">{{h.title}}</a>
@@ -79,16 +65,12 @@
                     <a href="#">Get Tickets</a>
                 </td>
             </tr>
-
         </table>
         <a href="#"><h5>See more opening this week...</h5></a>
         <hr style="height:1px;border:none;border-top:1px solid #555555;" />
         <button type="button" class="btn btn-primary btn-lg btn-block" >Get Tickets & ShowTimes</button>
         <hr style="height:1px;border:none;border-top:1px solid #555555;" />
         <h4>Follow Us On Twitter</h4>
-
-    </div>
-
     </div>
 
 </div>
