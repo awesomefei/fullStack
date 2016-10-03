@@ -18,6 +18,15 @@
                     <p>
                         Metascore: {{m.rate}}/10
                     </p>
+                    <div ng-repeat="cast in m.celebs">
+                        <p>
+                            <strong>Cast:</strong>
+                            <a href="celebs/{{cast._id}}">{{cast.firstName}} {{cast.lastName}}</a>
+                        </p>
+
+
+                    </div>
+
                     <p>
                         Introduction:<br>
                         {{m.introduction}}
