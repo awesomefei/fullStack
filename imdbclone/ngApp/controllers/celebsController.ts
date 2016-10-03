@@ -1,7 +1,7 @@
 namespace imdbclone.Controllers{
     export class CelebsController{
         public celebs;
-        public celeb;
+        public celebMovies;
         public celebId;
         public tags;
         public message = 'hello from CelebsController'
@@ -13,23 +13,23 @@ namespace imdbclone.Controllers{
             this.getCelebs();
             this.celebId = this.$stateParams['id'];
             this.getceleb();
-            console.log(this.celeb);
+            console.log(this.celebMovies);
         }
-        
+
         getCelebs(){
             this.celebs = this.celebService.getCelebsOnService();
         }
         getceleb(){
-            this.celeb = this.celebService.getCelebOnService(this.celebId);
+            this.celebMovies = this.celebService.getCelebOnService(this.celebId);
         }
         likeCeleb(){
-            console.log(this.celeb.like);
-            this.celeb.like++;
-            this.celebService.editCelebOnService(this.celeb);
+            console.log(this.celebMovies.like);
+            this.celebMovies.like++;
+            this.celebService.editCelebOnService(this.celebMovies);
         }
         dislikeCeleb(){
-            this.celeb.dislike++;
-            this.celebService.editCelebOnService(this.celeb);
+            this.celebMovies.dislike++;
+            this.celebService.editCelebOnService(this.celebMovies);
         }
     }
 }

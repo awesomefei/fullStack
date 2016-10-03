@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as mongodb from 'mongodb';
 import Celeb from '../models/celeb';
 import Comment from '../models/comment';
+import Movie from '../models/movie';
 
 let ObjectId = mongodb.ObjectID;
 let celebRoute = express.Router();
@@ -18,14 +19,47 @@ celebRoute.get('/', (req, res) =>{
 });
 
 celebRoute.get('/:id', (req, res) =>{
+    let data:any = {};
+
     Celeb.findById(req.params['id'])
-    //.populate('comments')
     .then((celeb) =>{
-        res.send(celeb)
+        // data.id=celeb.id;
+        // data.imageUrl= celeb.imageUrl;
+        // data.career = celeb.career;
+        // data.website = celeb.website;
+        // data.spouse = celeb.spouse;
+        // data.agent = celeb.agent;
+        // data.lastName = celeb.lastName;
+        // data.firstName = celeb.firstName;
+        // data.like = celeb.like;
+        // data.dislike = celeb.dislike;
+
+        data.celeb = celeb;
+
+        Movie.find({celebs:req.params['id']})
+        .then((movies) =>{
+            //res.send(movies);
+            data.movies=movies;
+
+            res.send(data)
+        })
+        .catch((err) =>{
+            res.status(404).send(err);
+        })
     })
     .catch((err) =>{
-        res.status(404).send(err)
+        res.status(404).send(err);
     });
+
+
+    // Celeb.findById(req.params['id'])
+    // .populate('comments')
+    // .then((celeb) =>{
+    //     res.send(celeb)
+    // })
+    // .catch((err) =>{
+    //     res.status(404).send(err)
+    // });
 });
 
 celebRoute.put('/', (req, res) =>{

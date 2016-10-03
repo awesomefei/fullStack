@@ -10,22 +10,22 @@ var imdbclone;
                 this.getCelebs();
                 this.celebId = this.$stateParams['id'];
                 this.getceleb();
-                console.log(this.celeb);
+                console.log(this.celebMovies);
             }
             CelebsController.prototype.getCelebs = function () {
                 this.celebs = this.celebService.getCelebsOnService();
             };
             CelebsController.prototype.getceleb = function () {
-                this.celeb = this.celebService.getCelebOnService(this.celebId);
+                this.celebMovies = this.celebService.getCelebOnService(this.celebId);
             };
             CelebsController.prototype.likeCeleb = function () {
-                console.log(this.celeb.like);
-                this.celeb.like++;
-                this.celebService.editCelebOnService(this.celeb);
+                console.log(this.celebMovies.like);
+                this.celebMovies.like++;
+                this.celebService.editCelebOnService(this.celebMovies);
             };
             CelebsController.prototype.dislikeCeleb = function () {
-                this.celeb.dislike++;
-                this.celebService.editCelebOnService(this.celeb);
+                this.celebMovies.dislike++;
+                this.celebService.editCelebOnService(this.celebMovies);
             };
             return CelebsController;
         }());

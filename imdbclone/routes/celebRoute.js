@@ -2,6 +2,7 @@
 var express = require('express');
 var mongodb = require('mongodb');
 var celeb_1 = require('../models/celeb');
+var movie_1 = require('../models/movie');
 var ObjectId = mongodb.ObjectID;
 var celebRoute = express.Router();
 celebRoute.get('/', function (req, res) {
@@ -14,9 +15,18 @@ celebRoute.get('/', function (req, res) {
     });
 });
 celebRoute.get('/:id', function (req, res) {
+    var data = {};
     celeb_1.default.findById(req.params['id'])
         .then(function (celeb) {
-        res.send(celeb);
+        data.celeb = celeb;
+        movie_1.default.find({ celebs: req.params['id'] })
+            .then(function (movies) {
+            data.movies = movies;
+            res.send(data);
+        })
+            .catch(function (err) {
+            res.status(404).send(err);
+        });
     })
         .catch(function (err) {
         res.status(404).send(err);
