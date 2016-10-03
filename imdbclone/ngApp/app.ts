@@ -8,33 +8,33 @@ namespace imdbclone {
         // Define routes
         $stateProvider
             .state('home', {
-                url: '/imdb',
+                url: '/',
                 templateUrl: '/ngApp/views/home.html',
                 controller: imdbclone.Controllers.HomeController,
                 controllerAs: 'controller'
             })
 
             .state('movies', {
-                url:'/imdb/movies',
+                url:'/movies',
                 templateUrl: '/ngApp/views/movies.html',
                 controller: imdbclone.Controllers.MovieController,
                 controllerAs: 'vm'
             })
 
             .state('movieDetails', {
-                url:'/imdb/movies/:id',
+                url:'/movies/:id',
                 templateUrl: '/ngApp/views/movieDetails.html',
                 controller: imdbclone.Controllers.MovieDetailsController,
                 controllerAs: 'vm'
             })
             .state('celebs', {
-                url:'/imdb/celebs',
+                url:'/celebs',
                 templateUrl: '/ngApp/views/celebs.html',
                 controller: imdbclone.Controllers.CelebsController,
                 controllerAs: 'vm'
             })
             .state('celebDetails', {
-                url:'/imdb/celebs/:id',
+                url:'/celebs/:id',
                 templateUrl: '/ngApp/views/celebDetails.html',
                 controller: imdbclone.Controllers.CelebsController,
                 controllerAs: 'vm'
