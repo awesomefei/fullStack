@@ -25,6 +25,9 @@ namespace imdbclone.Services{
         getCelebOnService(id){
             return this.celebResource.get({id:id});
         }
+        // getTagsOnService(){
+        //     return this.celebResource.
+        // }
         saveCelebOnService(celeb){
             return this.celebResource.save(celeb).$promise;
         }

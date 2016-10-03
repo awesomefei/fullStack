@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as Comment from './comment';
+import * as Movie from './movie';
 
 export interface ICeleb extends mongoose.Document{
     firstName:string;
@@ -12,9 +13,14 @@ export interface ICeleb extends mongoose.Document{
     like:number;
     dislike:number;
     comments:Comment.IComment[];
+    "knownfor": Movie.IMovie[],
 }
 
 let celebSchema = new mongoose.Schema({
+    knownfor:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Movie'
+    },
     like:{
         type:Number,
         required:false

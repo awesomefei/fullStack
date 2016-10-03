@@ -3,6 +3,7 @@ namespace imdbclone.Controllers{
         public celebs;
         public celeb;
         public celebId;
+        public tags;
         public message = 'hello from CelebsController'
 
         constructor(
@@ -14,6 +15,7 @@ namespace imdbclone.Controllers{
             this.getceleb();
             console.log(this.celeb);
         }
+        
         getCelebs(){
             this.celebs = this.celebService.getCelebsOnService();
         }

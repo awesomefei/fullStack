@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as mongodb from 'mongodb';
 import Movie from '../models/movie';
 import Comment from '../models/comment';
+import Celeb from '../models/celeb';
 
 let ObjectId = mongodb.ObjectID;
 let movieRoute = express.Router();
@@ -9,7 +10,8 @@ let movieRoute = express.Router();
 
 movieRoute.get('/', (req, res) =>{
     Movie.find()
-    .populate('comments')
+    .populate('comments celebs')
+
     .then((movies) =>{
         res.send(movies);
     })
@@ -21,7 +23,8 @@ movieRoute.get('/', (req, res) =>{
 
 movieRoute.get('/:id', (req, res) =>{
     Movie.findById(req.params['id'])
-    .populate('comments')
+    .populate('comments celebs')
+
     .then((movie) =>{
         res.send(movie);
     })
@@ -69,6 +72,33 @@ movieRoute.post('/comments/:movieId', (req, res) =>{
             res.sendStatus(400);
         });
 
+});
+// movieRoute.get('/celebs/:movieId', (req,res) =>{
+//     .find()
+//     .then((celebs) =>{
+//         res.send(celebs);
+//     })
+//     .catch((err) =>{
+//         res.status(404).send(err);
+//     });
+//
+// });
+
+movieRoute.post('/addcelebs/:movieId', (req, res) =>{
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
+    let movieId = new ObjectId(req.params['movieId']);
+    let celebId = new ObjectId(req.body.celebId);
+    console.log("celebId:" + celebId + ' ');
+    console.log("movieId: " + movieId);
+
+    Movie.update({_id:movieId}, {$push:{celebs:celebId}})
+
+    .then((movie) =>{
+        res.sendStatus(201);
+    })
+    .catch((err) =>{
+        res.sendStatus(400).send(err);
+    });
 });
 
 

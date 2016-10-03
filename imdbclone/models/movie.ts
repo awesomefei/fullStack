@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import * as Comment from './comment';
+import * as Celeb from './celeb';
 
 export interface IMovie extends mongoose.Document{
     title:string;
@@ -8,6 +9,7 @@ export interface IMovie extends mongoose.Document{
     rate:number;
     url:string;
     comments:Comment.IComment[];
+    celebs: Celeb.ICeleb[];
 }
 
 let movieSchema = new mongoose.Schema({
@@ -19,10 +21,10 @@ let movieSchema = new mongoose.Schema({
         type:String,
         required:true
     },
-    // timeReleased:{
-    //     type:Number,
-    //     required:true
-    // },
+    celebs:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Celeb'
+    }],
     rate:{
         type:Number,
         required:true

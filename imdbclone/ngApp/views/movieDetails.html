@@ -5,6 +5,13 @@
         </iframe> -->
 
         <youtube-video video-id="vm.movie.trailerUrl"></youtube-video>
+        <div ng-repeat="cast in vm.movie.celebs">
+            <p>
+            <h3><strong>Cast: </strong><a href="#">{{cast.firstName}} {{cast.lastName}}</a></h3>
+        </p>
+
+
+        </div>
 
     </div>
 

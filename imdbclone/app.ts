@@ -15,7 +15,7 @@ import commetRoute from './routes/commentRoute';
 import celebRoute from './routes/celebRoute';
 import homeMovieRoute from './routes/homeMovieRoute';
 import directorRoute from './routes/directorRoute';
-
+import tagRoute from './routes/tagRoute';
 
 Database.connect();
 let app = express();
@@ -43,6 +43,7 @@ app.use('/api/comments', commetRoute);
 app.use('/api/celebs', celebRoute);
 app.use('/api/homeMovies', homeMovieRoute);
 app.use('/api/directors', directorRoute);
+app.use('/api/tags', tagRoute);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

@@ -1,6 +1,10 @@
 "use strict";
 var mongoose = require('mongoose');
 var celebSchema = new mongoose.Schema({
+    knownfor: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Movie'
+    },
     like: {
         type: Number,
         required: false

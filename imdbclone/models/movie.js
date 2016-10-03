@@ -9,6 +9,10 @@ var movieSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    celebs: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Celeb'
+        }],
     rate: {
         type: Number,
         required: true

@@ -9,19 +9,23 @@ namespace imdbclone.Services{
                 saveComment:{
                     method: 'POST',
                     url:'/api/movies/comments/:movieId'
-                }
+                },
+                //  getCelebs:{
+                //      method:'GET',
+                //      url:'/api/celebs/:movieId'
+                //  }
             });
         }
-
+        //getCelebsOnService(){
+            //return this. movieResource.getCelebs().$promise;
+         //}
         getMoviesOnService(){
             return this.movieResource.query();
         }
         getMovieOnService(movieId){
             return this.movieResource.get({id:movieId});
         }
-        // getCommentCountOnServiece(movieId){
-        //     return this.getMovieOnService(movieId).comments.length;
-        // }
+
         saveMovie(movie){
             return this.movieResource.save(movie).$promise;
         }

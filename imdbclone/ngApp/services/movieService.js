@@ -8,7 +8,7 @@ var imdbclone;
                     saveComment: {
                         method: 'POST',
                         url: '/api/movies/comments/:movieId'
-                    }
+                    },
                 });
             }
             MovieService.prototype.getMoviesOnService = function () {

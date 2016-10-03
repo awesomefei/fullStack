@@ -12,6 +12,7 @@ var commentRoute_1 = require('./routes/commentRoute');
 var celebRoute_1 = require('./routes/celebRoute');
 var homeMovieRoute_1 = require('./routes/homeMovieRoute');
 var directorRoute_1 = require('./routes/directorRoute');
+var tagRoute_1 = require('./routes/tagRoute');
 db_1.default.connect();
 var app = express();
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +32,7 @@ app.use('/api/comments', commentRoute_1.default);
 app.use('/api/celebs', celebRoute_1.default);
 app.use('/api/homeMovies', homeMovieRoute_1.default);
 app.use('/api/directors', directorRoute_1.default);
+app.use('/api/tags', tagRoute_1.default);
 app.get('/*', function (req, res, next) {
     if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
         return next({ status: 404, message: 'Not Found' });

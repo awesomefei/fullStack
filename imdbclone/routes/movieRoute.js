@@ -7,7 +7,7 @@ var ObjectId = mongodb.ObjectID;
 var movieRoute = express.Router();
 movieRoute.get('/', function (req, res) {
     movie_1.default.find()
-        .populate('comments')
+        .populate('comments celebs')
         .then(function (movies) {
         res.send(movies);
     })
@@ -17,7 +17,7 @@ movieRoute.get('/', function (req, res) {
 });
 movieRoute.get('/:id', function (req, res) {
     movie_1.default.findById(req.params['id'])
-        .populate('comments')
+        .populate('comments celebs')
         .then(function (movie) {
         res.send(movie);
     })
@@ -58,6 +58,20 @@ movieRoute.post('/comments/:movieId', function (req, res) {
     })
         .catch(function () {
         res.sendStatus(400);
+    });
+});
+movieRoute.post('/addcelebs/:movieId', function (req, res) {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
+    var movieId = new ObjectId(req.params['movieId']);
+    var celebId = new ObjectId(req.body.celebId);
+    console.log("celebId:" + celebId + ' ');
+    console.log("movieId: " + movieId);
+    movie_1.default.update({ _id: movieId }, { $push: { celebs: celebId } })
+        .then(function (movie) {
+        res.sendStatus(201);
+    })
+        .catch(function (err) {
+        res.sendStatus(400).send(err);
     });
 });
 Object.defineProperty(exports, "__esModule", { value: true });
