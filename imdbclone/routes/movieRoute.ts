@@ -88,12 +88,11 @@ movieRoute.post('/addcelebs/:movieId', (req, res) =>{
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
     let movieId = new ObjectId(req.params['movieId']);
     let celebId = new ObjectId(req.body.celebId);
-    console.log("celebId:" + celebId + ' ');
-    console.log("movieId: " + movieId);
 
     Movie.update({_id:movieId}, {$push:{celebs:celebId}})
 
     .then((movie) =>{
+        console.log(this.celebs);
         res.sendStatus(201);
     })
     .catch((err) =>{

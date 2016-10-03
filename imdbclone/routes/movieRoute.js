@@ -1,4 +1,5 @@
 "use strict";
+var _this = this;
 var express = require('express');
 var mongodb = require('mongodb');
 var movie_1 = require('../models/movie');
@@ -64,10 +65,9 @@ movieRoute.post('/addcelebs/:movieId', function (req, res) {
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
     var movieId = new ObjectId(req.params['movieId']);
     var celebId = new ObjectId(req.body.celebId);
-    console.log("celebId:" + celebId + ' ');
-    console.log("movieId: " + movieId);
     movie_1.default.update({ _id: movieId }, { $push: { celebs: celebId } })
         .then(function (movie) {
+        console.log(_this.celebs);
         res.sendStatus(201);
     })
         .catch(function (err) {

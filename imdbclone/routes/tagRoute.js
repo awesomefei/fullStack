@@ -6,6 +6,7 @@ var ObjectId = mongodb.ObjectID;
 var tagRoute = express.Router();
 tagRoute.get('/', function (req, res) {
     tag_1.default.find()
+        .populate('movies')
         .then(function (tags) {
         res.send(tags);
     })
@@ -20,6 +21,21 @@ tagRoute.get('/:id', function (req, res) {
     ]; })
         .catch(function (err) {
         res.status(404).send(err);
+    });
+});
+tagRoute.post('/addmovie/:tagId', function (req, res) {
+    console.log('-----------------------');
+    var tagId = new ObjectId(req.params['tagId']);
+    var movieId = new ObjectId(req.body.movieId);
+    console.log(tagId);
+    console.log(movieId);
+    tag_1.default.update({ _id: tagId }, { $push: { movies: movieId } })
+        .then(function (tag) {
+        console.log(tag);
+        res.sendStatus(201);
+    })
+        .catch(function (err) {
+        res.sendStatus(400).send(err);
     });
 });
 tagRoute.post('/', function (req, res) {
