@@ -16,44 +16,42 @@
     <div class="container">
         <h1>imdbclone</h1>
     </div>
-
     <div class="container container-div" >
+        <div class="navbar navbar-inverse navDiv">
+            <form class="from-group" ng-submit:'search()'>
+                <input type="text" name="name" placeholder="Find movies..."
+                ng-model='moviesAndTV'>
 
-                <div class="navbar navbar-inverse navDiv">
-                    <form class="from-group" ng-submit:'search()'>
-                        <input type="text" name="name" placeholder="Find movies..."
-                        ng-model='moviesAndTV'>
+                <select ng-model='selected' ng-options="">
 
-                        <select ng-model='selected' ng-options="">
-
-                        </select>
-                        <button type="button" class="btn btn-default btn-sm"><span class='glyphicon glyphicon-search'></span>Search</button>
-                    </form>
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <a class="navbar-brand active" href="/">Imdb</a>
+                </select>
+                <button type="button" class="btn btn-default btn-sm"><span class='glyphicon glyphicon-search'></span>Search</button>
+            </form>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand active" href="/">Imdb</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <div class="dropdown">
+                        <button class="dropbtn"><a href="/movies">Movies</a></button>
+                        <div class="dropdown-content">
+                            <a href="#"><bold>MOVIES </bold></a>
+                            <a href="#">CHARTS & TRENDS</a>
+                            <a href="#">TV & VIDEO</a>
+                            <a href="#">SPECIAL FEATURES</a>
                         </div>
-                        <ul class="nav navbar-nav">
-                            <div class="dropdown">
-                                <button class="dropbtn"><a href="/movies">Movies</a></button>
-                                <div class="dropdown-content">
-                                    <a href="#"><bold>MOVIES </bold></a>
-                                    <a href="#">CHARTS & TRENDS</a>
-                                    <a href="#">TV & VIDEO</a>
-                                    <a href="#">SPECIAL FEATURES</a>
-                                </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn"><a href="/celebs">Celebs<a></button>
+                            <div class="dropdown-content">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
                             </div>
-                            <div class="dropdown">
-                                <button class="dropbtn"><a href="/celebs">Celebs<a></button>
-                                <div class="dropdown-content">
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
-                                </div>
-                            </div>
+                        </div>
 
-                            <div class="dropdown">
-                                <button class="dropbtn"><a href="/news"> News <a></button>
+                        <div class="dropdown">
+                            <button class="dropbtn"><a href="/news"> News <a></button>
                                 <div class="dropdown-content">
                                     <a href="#">Link 1</a>
                                     <a href="#">Link 2</a>
@@ -63,57 +61,57 @@
 
                             <div class="dropdown">
                                 <button class="dropbtn"><a href="/news">Watchlist <a></button>
-                                <div class="dropdown-content">
-                                    <a href="#">Link 1</a>
-                                    <a href="#">Link 2</a>
-                                    <a href="#">Link 3</a>
+                                    <div class="dropdown-content">
+                                        <a href="#">Link 1</a>
+                                        <a href="#">Link 2</a>
+                                        <a href="#">Link 3</a>
+                                    </div>
                                 </div>
-                            </div>
 
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                        </ul>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            </ul>
 
                         </div>
 
                     </div>
 
-                      <ui-view></ui-view>
-                      <hr>
-                      <footer class="from-group" >
-                          <p>Posted by: Ann Wang</p>
-                          <p>Contact information: <a href="lifeiwanguk@gmail.com">
-                              lifeiwanguk@gmail.com</a>.</p>
-                      </footer>
-        </div>
+                    <ui-view></ui-view>
+                    <hr>
+                    <footer class="from-group" >
+                        <p>Posted by: Ann Wang</p>
+                        <p>Contact information: <a href="lifeiwanguk@gmail.com">
+                            lifeiwanguk@gmail.com</a>.</p>
+                        </footer>
+                    </div>
 
-        <script src="/bower_components/angular/angular.min.js"></script>
-        <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-        <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
-        <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
-        <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
-        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-        <script src="https://www.youtube.com/iframe_api"></script>
-        <script src="/bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
-
-
-        <script src="/ngApp/app.js"></script>
-
-        <script src="/ngApp/services/services.js"></script>
-        <script src="/ngApp/services/movieService.js"></script>
-        <script src="/ngApp/services/celebService.js"></script>
-        <script src="/ngApp/services/homeMovieService.js"></script>
+                    <script src="/bower_components/angular/angular.min.js"></script>
+                    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+                    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+                    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+                    <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+                    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+                    <script src="https://www.youtube.com/iframe_api"></script>
+                    <script src="/bower_components/angular-youtube-mb/dist/angular-youtube-embed.min.js"></script>
 
 
-        <script src="/ngApp/controllers/controllers.js"></script>
-        <script src="/ngApp/controllers/movieController.js"></script>
-        <script src="/ngApp/controllers/celebsController.js"></script>
-        <script src="/ngApp/controllers/movieDetailsController.js"></script>
+                    <script src="/ngApp/app.js"></script>
+
+                    <script src="/ngApp/services/services.js"></script>
+                    <script src="/ngApp/services/movieService.js"></script>
+                    <script src="/ngApp/services/celebService.js"></script>
+                    <script src="/ngApp/services/homeMovieService.js"></script>
+
+
+                    <script src="/ngApp/controllers/controllers.js"></script>
+                    <script src="/ngApp/controllers/movieController.js"></script>
+                    <script src="/ngApp/controllers/celebsController.js"></script>
+                    <script src="/ngApp/controllers/movieDetailsController.js"></script>
 
 
 
-    </body>
+                </body>
 
-    </html>
+                </html>
