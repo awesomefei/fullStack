@@ -3,6 +3,7 @@ import * as mongodb from 'mongodb';
 import Movie from '../models/movie';
 import Comment from '../models/comment';
 import Celeb from '../models/celeb';
+import Tag from '../models/tag';
 
 let ObjectId = mongodb.ObjectID;
 let movieRoute = express.Router();
@@ -22,15 +23,36 @@ movieRoute.get('/', (req, res) =>{
 });
 
 movieRoute.get('/:id', (req, res) =>{
+    let data:any={};
     Movie.findById(req.params['id'])
     .populate('comments celebs')
-
     .then((movie) =>{
-        res.send(movie);
+        data.movie = movie;
+        Tag.find({movies:req.params['id']})
+
+        .then((tags)=>{
+            data.tags = tags;
+            res.send(data)
+        })
+        .catch((err) =>{
+            res.status(404).send(err);
+        })
     })
     .catch((err) =>{
         res.status(404).send(err);
-    });
+    })
+
+
+
+    // Movie.findById(req.params['id'])
+    // .populate('comments celebs')
+    //
+    // .then((movie) =>{
+    //     res.send(movie);
+    // })
+    // .catch((err) =>{
+    //     res.status(404).send(err);
+    // });
 });
 
 movieRoute.post('/', (req,res) =>{

@@ -4,6 +4,7 @@ var express = require('express');
 var mongodb = require('mongodb');
 var movie_1 = require('../models/movie');
 var comment_1 = require('../models/comment');
+var tag_1 = require('../models/tag');
 var ObjectId = mongodb.ObjectID;
 var movieRoute = express.Router();
 movieRoute.get('/', function (req, res) {
@@ -17,10 +18,19 @@ movieRoute.get('/', function (req, res) {
     });
 });
 movieRoute.get('/:id', function (req, res) {
+    var data = {};
     movie_1.default.findById(req.params['id'])
         .populate('comments celebs')
         .then(function (movie) {
-        res.send(movie);
+        data.movie = movie;
+        tag_1.default.find({ movies: req.params['id'] })
+            .then(function (tags) {
+            data.tags = tags;
+            res.send(data);
+        })
+            .catch(function (err) {
+            res.status(404).send(err);
+        });
     })
         .catch(function (err) {
         res.status(404).send(err);

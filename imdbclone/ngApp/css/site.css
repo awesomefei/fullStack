@@ -19,7 +19,9 @@ img {
     border-width: 1px;
     background-color: white;
 }
-
+.button{
+    float:right;
+}
 .multiline-text{
     display: block; /* Fallback for non-webkit */
   display: -webkit-box;

@@ -1,14 +1,15 @@
 namespace imdbclone.Controllers{
     export class MovieDetailsController{
         public message='hello from MovieDetailsController';
-        public movie;
         public comment = {};
         private movieId;
+        public movieTag;
 
         //public celebs ;
 
         constructor(
             private movieService: imdbclone.Services.MovieService,
+            private $uibModal: ng.ui.bootstrap.IModalService,
             private $stateParams:ng.ui.IStateParamsService
 
         ){
@@ -17,6 +18,21 @@ namespace imdbclone.Controllers{
             //this.celebs = this.getCelebs();
 
 
+        }
+        getTagDetails(id){
+            this.$uibModal.open({
+                templateUrl:'/ngApp/views/tagDetails.html',
+                controller:imdbclone.Controllers.TagDetailsController,
+                controllerAs:'vm',
+                resolve:{
+                    tagId: () => id,
+                },
+                size: 'sm'
+
+            }).result.then((data) =>{
+                console.log(data),
+                this.get
+            })
         }
 
         // getCommentCount(){
@@ -27,7 +43,7 @@ namespace imdbclone.Controllers{
         //     this.movieService.getCelebsOnService();
         // }
         getMovie(){
-            this.movie = this.movieService.getMovieOnService(this.movieId);
+            this.movieTag = this.movieService.getMovieOnService(this.movieId);
         };
 
         saveComment(){
