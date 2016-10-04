@@ -27,6 +27,7 @@ movieRoute.get('/:id', (req, res) =>{
     Movie.findById(req.params['id'])
     .populate('comments celebs')
     .then((movie) =>{
+        console.log(movie);
         data.movie = movie;
         Tag.find({movies:req.params['id']})
 

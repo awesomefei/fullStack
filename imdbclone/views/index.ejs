@@ -18,19 +18,26 @@
     </div>
     <div class="container container-div" >
         <div class="navbar navbar-inverse navDiv">
+            <div class="navbar-header">
+                <a class="navbar-brand active" href="/">Imdb</a>
+            </div>
             <form class="from-group" ng-submit:'search()'>
-                <input type="text" name="name" placeholder="Find movies..."
-                ng-model='moviesAndTV'>
+                <span>
+                    <input type="text" name="name" placeholder="Find movies..."
+                    ng-model='moviesAndTV' size="70">
 
-                <select ng-model='selected' ng-options="">
+                    <select class='test' ng-model='selected' ng-options="" >
+                        <option selected>All</option>
+                        <option>Movie</option>
+                        <option>Celeb</option>
 
-                </select>
-                <button type="button" class="btn btn-default btn-sm"><span class='glyphicon glyphicon-search'></span>Search</button>
+                    </select>
+                    <button type="button" class="btn btn-default btn-sm"><span class='glyphicon glyphicon-search'></span>Search</button>
+                </span>
+
             </form>
             <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand active" href="/">Imdb</a>
-                </div>
+
                 <ul class="nav navbar-nav">
                     <div class="dropdown">
                         <button class="dropbtn"><a href="/movies">Movies</a></button>

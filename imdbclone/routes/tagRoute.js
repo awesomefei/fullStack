@@ -16,6 +16,7 @@ tagRoute.get('/', function (req, res) {
 });
 tagRoute.get('/:id', function (req, res) {
     tag_1.default.findById(req.params['id'])
+        .populate('movies')
         .then(function (tag) { return [
         res.send(tag)
     ]; })

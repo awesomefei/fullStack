@@ -4,11 +4,12 @@ namespace imdbclone.Controllers{
         public comment = {};
         private movieId;
         public movieTag;
-
+        public tagContents;
         //public celebs ;
 
         constructor(
             private movieService: imdbclone.Services.MovieService,
+            private tagService:imdbclone.Services.TagService,
             private $uibModal: ng.ui.bootstrap.IModalService,
             private $stateParams:ng.ui.IStateParamsService
 
@@ -19,7 +20,11 @@ namespace imdbclone.Controllers{
 
 
         }
+        getTagContents(){
+            this.tagContents = this.tagService.getTagContentsOnservice();
+        }
         getTagDetails(id){
+            //console.log('!!!!!!!!!!!!!!!!');
             this.$uibModal.open({
                 templateUrl:'/ngApp/views/tagDetails.html',
                 controller:imdbclone.Controllers.TagDetailsController,
@@ -27,12 +32,10 @@ namespace imdbclone.Controllers{
                 resolve:{
                     tagId: () => id,
                 },
-                size: 'sm'
+                size: 'ml'
 
-            }).result.then((data) =>{
-                console.log(data),
-                this.get
             })
+
         }
 
         // getCommentCount(){

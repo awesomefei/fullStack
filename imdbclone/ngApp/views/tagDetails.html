@@ -1,0 +1,10 @@
+<h1>{{vm.tag.item}} Movies: </h1>
+<div class="well">
+    <table>
+        <tr ng-repeat='movie in vm.tag.movies'>
+            <td>
+                <a href="/movies/{{movie._id}}">{{movie.title}}</a>
+            </td>
+        </tr>
+    </table>
+</div>

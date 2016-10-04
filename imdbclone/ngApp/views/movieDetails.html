@@ -7,17 +7,13 @@
         <div ng-repeat="cast in vm.movieTag.movie.celebs">
             <p>
              <a href="/celebs/{{cast._id}}">{{cast.firstName}} {{cast.lastName}}</a>
-            </p>
+         </p>
+        </div>
         <h3><strong>Tags:</strong></h3>
         <div ng-repeat='tag in vm.movieTag.tags'>
-            <button type="button"><a href="#">{{tag.item}}</a></button>
+            <button type="button" ng-click='vm.getTagDetails(tag._id)'>{{tag.item}}</button>
         </div>
         <button type="button" class="button" ng-click='' >add tag here...</button>
-
-
-
-        </div>
-
     </div>
 
 

@@ -22,6 +22,7 @@ movieRoute.get('/:id', function (req, res) {
     movie_1.default.findById(req.params['id'])
         .populate('comments celebs')
         .then(function (movie) {
+        console.log(movie);
         data.movie = movie;
         tag_1.default.find({ movies: req.params['id'] })
             .then(function (tags) {

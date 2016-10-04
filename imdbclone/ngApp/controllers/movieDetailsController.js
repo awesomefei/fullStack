@@ -3,8 +3,9 @@ var imdbclone;
     var Controllers;
     (function (Controllers) {
         var MovieDetailsController = (function () {
-            function MovieDetailsController(movieService, $uibModal, $stateParams) {
+            function MovieDetailsController(movieService, tagService, $uibModal, $stateParams) {
                 this.movieService = movieService;
+                this.tagService = tagService;
                 this.$uibModal = $uibModal;
                 this.$stateParams = $stateParams;
                 this.message = 'hello from MovieDetailsController';
@@ -12,8 +13,10 @@ var imdbclone;
                 this.movieId = this.$stateParams['id'];
                 this.getMovie();
             }
+            MovieDetailsController.prototype.getTagContents = function () {
+                this.tagContents = this.tagService.getTagContentsOnservice();
+            };
             MovieDetailsController.prototype.getTagDetails = function (id) {
-                var _this = this;
                 this.$uibModal.open({
                     templateUrl: '/ngApp/views/tagDetails.html',
                     controller: imdbclone.Controllers.TagDetailsController,
@@ -21,10 +24,7 @@ var imdbclone;
                     resolve: {
                         tagId: function () { return id; },
                     },
-                    size: 'sm'
-                }).result.then(function (data) {
-                    console.log(data),
-                        _this.get;
+                    size: 'ml'
                 });
             };
             MovieDetailsController.prototype.getMovie = function () {

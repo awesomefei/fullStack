@@ -3,9 +3,15 @@
     padding-right: 3px !important;
 
 }
-img {
+.test{
+    height: 50px;
+}
+img{
     width: 100%;
     height: auto;
+}
+iframe{
+    width: 100%;
 }
 .container-div {
     background-color:#ffffff;
