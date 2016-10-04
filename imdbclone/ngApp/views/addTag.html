@@ -1,0 +1,22 @@
+
+
+
+<div class="container">
+    <h1>Contribute it:</h1>
+    <div class="btn-group" ng-repeat='tag in vm.tags'>
+  <button type="button" class="btn btn-info">{{tag.item}}</button>
+
+</div>
+    <form class="form-inline">
+        <div class="form-group">
+            <p>
+                <h3>Can't find your tag?</h3>
+            </p>
+             <label for="newTag"><h4>New Tag:</h4></label>
+              <input  type="text" class="form-control" placeholder="Add a new tag.."/>
+              <button type="button" class="btn btn-primary">add</button>
+            </div>
+        </div>
+
+    </form>
+</div>

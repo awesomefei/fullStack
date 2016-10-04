@@ -13,7 +13,7 @@
         <div ng-repeat='tag in vm.movieTag.tags'>
             <button type="button" ng-click='vm.getTagDetails(tag._id)'>{{tag.item}}</button>
         </div>
-        <button type="button" class="button" ng-click='' >add tag here...</button>
+        <button type="button" class="button" ng-click='vm.getAllTagsItems()' >add tag here...</button>
     </div>
 
 

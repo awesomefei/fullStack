@@ -14,7 +14,15 @@ var imdbclone;
                 this.getMovie();
             }
             MovieDetailsController.prototype.getTagContents = function () {
-                this.tagContents = this.tagService.getTagContentsOnservice();
+            };
+            MovieDetailsController.prototype.getAllTagsItems = function () {
+                console.log('????????????????');
+                this.$uibModal.open({
+                    templateUrl: '/ngApp/views/addTag.html',
+                    controller: imdbclone.Controllers.AddTagController,
+                    controllerAs: 'vm',
+                    size: 'ml'
+                });
             };
             MovieDetailsController.prototype.getTagDetails = function (id) {
                 this.$uibModal.open({

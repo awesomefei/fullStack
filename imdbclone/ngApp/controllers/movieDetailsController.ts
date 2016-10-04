@@ -21,7 +21,16 @@ namespace imdbclone.Controllers{
 
         }
         getTagContents(){
-            this.tagContents = this.tagService.getTagContentsOnservice();
+            //this.tagContents = this.tagService.getTagContentsOnservice();
+        }
+        getAllTagsItems(){
+            console.log('????????????????');
+            this.$uibModal.open({
+                templateUrl:'/ngApp/views/addTag.html',
+                controller:imdbclone.Controllers.AddTagController,
+                controllerAs:'vm',
+                size: 'ml'
+            })
         }
         getTagDetails(id){
             //console.log('!!!!!!!!!!!!!!!!');

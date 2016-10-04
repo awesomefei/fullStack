@@ -11,12 +11,15 @@ namespace imdbclone.Services{
                 },
             });
         }
+        getTagsOnService(){
+            return this.tagResource.query();
+        }
         getTagOnservice(tagId){
             return this.tagResource.get({id:tagId});
         }
-        getTagContentsOnservice(){
-            return this.tagResource.query();
-        }
+    //    getTagContentsOnservice(){
+            //return this.tagResource.query();
+    //    }
     }
 
     angular.module('imdbclone').service('tagService',TagService);

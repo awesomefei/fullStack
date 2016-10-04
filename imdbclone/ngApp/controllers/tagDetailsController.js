@@ -9,6 +9,9 @@ var imdbclone;
                 this.message = 'hello from TagDetailsController';
                 this.getTag();
             }
+            TagDetailsController.prototype.getTags = function () {
+                this.tags = this.tagService.getTagsOnService();
+            };
             TagDetailsController.prototype.getTag = function () {
                 this.tag = this.tagService.getTagOnservice(this.tagId);
             };

@@ -11,11 +11,11 @@ var imdbclone;
                     },
                 });
             }
+            TagService.prototype.getTagsOnService = function () {
+                return this.tagResource.query();
+            };
             TagService.prototype.getTagOnservice = function (tagId) {
                 return this.tagResource.get({ id: tagId });
-            };
-            TagService.prototype.getTagContentsOnservice = function () {
-                return this.tagResource.query();
             };
             return TagService;
         }());
