@@ -5,8 +5,13 @@ import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
+import * as passport from 'passport';
 
 import Database from './db';
+
+const expressValidator = require('express-validator');
+const bearerToken = require('express-bearer-token');
+
 
 import routes from './routes/index';
 import users from './routes/users';
@@ -16,6 +21,7 @@ import celebRoute from './routes/celebRoute';
 import homeMovieRoute from './routes/homeMovieRoute';
 import directorRoute from './routes/directorRoute';
 import tagRoute from './routes/tagRoute';
+import watchlistRoute from './routes/watchlistRoute';
 
 Database.connect();
 let app = express();
@@ -26,17 +32,25 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+//passport
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bearerToken());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(expressValidator());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
 app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 app.use('/api', express.static(path.join(__dirname, 'api')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/api/users', users);
+
+
 
 app.use('/api/movies', movieRoute);
 app.use('/api/comments', commetRoute);
@@ -44,6 +58,7 @@ app.use('/api/celebs', celebRoute);
 app.use('/api/homeMovies', homeMovieRoute);
 app.use('/api/directors', directorRoute);
 app.use('/api/tags', tagRoute);
+app.use('/api/movies1', watchlistRoute);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

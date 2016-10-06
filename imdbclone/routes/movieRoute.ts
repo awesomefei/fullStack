@@ -10,6 +10,8 @@ let movieRoute = express.Router();
 
 
 movieRoute.get('/', (req, res) =>{
+
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!')
     Movie.find()
     .populate('comments celebs')
 

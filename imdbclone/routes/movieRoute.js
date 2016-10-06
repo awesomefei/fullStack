@@ -8,6 +8,7 @@ var tag_1 = require('../models/tag');
 var ObjectId = mongodb.ObjectID;
 var movieRoute = express.Router();
 movieRoute.get('/', function (req, res) {
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
     movie_1.default.find()
         .populate('comments celebs')
         .then(function (movies) {

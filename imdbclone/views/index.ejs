@@ -34,10 +34,9 @@
                     </select>
                     <button type="button" class="btn btn-default btn-sm"><span class='glyphicon glyphicon-search'></span>Search</button>
                 </span>
-
             </form>
-            <div class="container-fluid">
 
+            <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <div class="dropdown">
                         <button class="dropbtn"><a href="/movies">Movies</a></button>
@@ -57,20 +56,20 @@
                             </div>
                         </div>
 
-                            <div class="dropdown">
-                                <button class="dropbtn"><a href="/news">Watchlist <a></button>
-                                    <div class="dropdown-content">
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                    </div>
-                                </div>
+
+                                <button class="dropbtn"><a href="/watchlist">Watchlist <a></button>
+
+
 
                             </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                            </ul>
+                             <div ng-controller="navbarController as vm">
+                                 <ul class="nav navbar-nav navbar-right underline">
+                                     <sapn   ng-show='!vm.getUsername()'><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></sapn >
+                                    <sapn  ng-show='!vm.getUsername()'><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></sapn >
+                                       <span  ng-show='vm.getUsername'><a href="">{{vm.message}} {{vm.getUsername()}}</a></span>
+                                     <span ng-show='vm.getUsername()'><a href="#" ng-click='vm.logout()'><span class="glyphicon glyphicon-log-out"></span> Logout</a></sapn >
+                                 </ul>
+                            </div>
 
                         </div>
 
@@ -102,6 +101,8 @@
                     <script src="/ngApp/services/celebService.js"></script>
                     <script src="/ngApp/services/homeMovieService.js"></script>
                     <script src="/ngApp/services/tagService.js"></script>
+                    <script src="/ngApp/services/loginService.js"></script>
+
 
 
                     <script src="/ngApp/controllers/controllers.js"></script>
@@ -110,6 +111,12 @@
                     <script src="/ngApp/controllers/movieDetailsController.js"></script>
                     <script src="/ngApp/controllers/tagDetailsController.js"></script>
                     <script src="/ngApp/controllers/addTagController.js"></script>
+                    <script src="/ngApp/controllers/navbarController.js"></script>
+                    <script src="/ngApp/controllers/loginController.js"></script>
+                    <script src="/ngApp/controllers/watchlistController.js"></script>
+
+
+
 
 
 

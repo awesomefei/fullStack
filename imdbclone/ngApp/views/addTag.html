@@ -4,9 +4,8 @@
 <div class="container">
     <h1>Contribute it:</h1>
     <div class="btn-group" ng-repeat='tag in vm.tags'>
-  <button type="button" class="btn btn-info">{{tag.item}}</button>
-
-</div>
+        <button type="button" class="btn btn-info" ng-click='vm.saveTag()'>{{tag.item}}</button>
+    </div>
     <form class="form-inline">
         <div class="form-group">
             <p>

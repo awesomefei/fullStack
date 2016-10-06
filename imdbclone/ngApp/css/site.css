@@ -3,6 +3,14 @@
     padding-right: 3px !important;
 
 }
+ul.underline {
+    color: white;
+    text-decoration: none;
+}
+ul.underline a{
+    color: white;
+    text-decoration: none;
+}
 .test{
     height: 50px;
 }
