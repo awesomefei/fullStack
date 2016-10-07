@@ -58,7 +58,7 @@ app.use('/api/celebs', celebRoute);
 app.use('/api/homeMovies', homeMovieRoute);
 app.use('/api/directors', directorRoute);
 app.use('/api/tags', tagRoute);
-app.use('/api/movies1', watchlistRoute);
+app.use('/api/watchlist', watchlistRoute);
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

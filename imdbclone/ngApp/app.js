@@ -35,7 +35,7 @@ var imdbclone;
             .state('watchlist', {
             url: '/watchlist',
             templateUrl: '/ngApp/views/watchlist.html',
-            controller: imdbclone.Controllers.MovieController,
+            controller: imdbclone.Controllers.WatchListController,
             controllerAs: 'vm'
         })
             .state('login', {

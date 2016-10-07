@@ -1,5 +1,5 @@
-var watchlist;
-(function (watchlist) {
+var imdbclone;
+(function (imdbclone) {
     var Controllers;
     (function (Controllers) {
         var WatchListController = (function () {
@@ -7,10 +7,11 @@ var watchlist;
                 this.movieService = movieService;
                 this.$state = $state;
                 this.message = 'Hello from the watchlist Controllers';
+                this.getMovies();
             }
             WatchListController.prototype.getMovies = function () {
                 var _this = this;
-                this.movies = this.movieService.getMoviesOnService()
+                this.movies = this.movieService.getWatchlistOnservice()
                     .then(function (movies) {
                     _this.movies = movies;
                 })
@@ -21,5 +22,5 @@ var watchlist;
             return WatchListController;
         }());
         Controllers.WatchListController = WatchListController;
-    })(Controllers = watchlist.Controllers || (watchlist.Controllers = {}));
-})(watchlist || (watchlist = {}));
+    })(Controllers = imdbclone.Controllers || (imdbclone.Controllers = {}));
+})(imdbclone || (imdbclone = {}));

@@ -1,4 +1,4 @@
-namespace watchlist.Controllers{
+namespace imdbclone.Controllers{
     export class WatchListController{
         public message = 'Hello from the watchlist Controllers';
         public movies;
@@ -6,10 +6,11 @@ namespace watchlist.Controllers{
             private movieService:imdbclone.Services.MovieService,
             private $state:ng.ui.IStateService
         ){
-
+            this.getMovies();
         }
+
         getMovies(){
-            this.movies=this.movieService.getMoviesOnService()
+            this.movies=this.movieService.getWatchlistOnservice()
             .then((movies) =>{
                 this.movies = movies;
             })

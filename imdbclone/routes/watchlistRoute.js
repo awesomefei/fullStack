@@ -3,7 +3,8 @@ var express = require('express');
 var jwt = require('jsonwebtoken');
 var movie_1 = require('../models/movie');
 var watchlistRoute = express.Router();
-watchlistRoute.get('/', function (req, res) {
+watchlistRoute.get('/', authorize, function (req, res) {
+    console.log('!!!!!!!!!!!!!!!!!');
     movie_1.default
         .find()
         .then(function (movies) {

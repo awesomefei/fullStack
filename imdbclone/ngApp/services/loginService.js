@@ -3,11 +3,17 @@ var imdbclone;
     var Services;
     (function (Services) {
         var LoginService = (function () {
-            function LoginService($http, $window, $q) {
+            function LoginService($http, $resource, $window, $q) {
                 this.$http = $http;
+                this.$resource = $resource;
                 this.$window = $window;
                 this.$q = $q;
+                this.loginResource = $resource('/api/users/register');
             }
+            LoginService.prototype.registerOnService = function (user) {
+                console.log(user);
+                return this.loginResource.save(user).$promise;
+            };
             LoginService.prototype.isAdmin = function () {
                 return this.$window.localStorage.getItem('admin');
             };

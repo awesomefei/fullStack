@@ -1,14 +1,21 @@
 namespace imdbclone.Services{
     export class LoginService{
+        private loginResource;
         constructor(
             private $http:ng.IHttpService,
+            private $resource:ng.resource.IResourceService,
             private $window:ng.IWindowService,
             private $q: ng.IQService
 
         ){
+            this.loginResource = $resource('/api/users/register');
+
 
         }
-
+        registerOnService(user){
+            console.log(user);
+            return this.loginResource.save(user).$promise;
+        }
         isAdmin(){
             return this.$window.localStorage.getItem('admin');
 

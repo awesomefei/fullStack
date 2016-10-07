@@ -19,7 +19,7 @@
     <div class="container container-div" >
         <div class="navbar navbar-inverse navDiv">
             <div class="navbar-header">
-                <a class="navbar-brand active" href="/">Imdb</a>
+                <a class="navbar-brand active" href="/"><img src="http://ia.media-imdb.com/images/M/MV5BMTU2MjAxODIwNV5BMl5BanBnXkFtZTcwNjE2MDIzOA@@._V1_.jpg" alt="" style="width:100px; height:auto"/></a>
             </div>
             <form class="from-group" ng-submit:'search()'>
                 <span>
@@ -63,10 +63,13 @@
 
                             </ul>
                              <div ng-controller="navbarController as vm">
+
                                  <ul class="nav navbar-nav navbar-right underline">
-                                     <sapn   ng-show='!vm.getUsername()'><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></sapn >
+
+                                     <span  ng-show='vm.getUsername'><a href="">{{vm.message}} {{vm.getUsername()}}</a></span>
+                                     <sapn  ng-show='!vm.getUsername()'><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></sapn >
                                     <sapn  ng-show='!vm.getUsername()'><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></sapn >
-                                       <span  ng-show='vm.getUsername'><a href="">{{vm.message}} {{vm.getUsername()}}</a></span>
+
                                      <span ng-show='vm.getUsername()'><a href="#" ng-click='vm.logout()'><span class="glyphicon glyphicon-log-out"></span> Logout</a></sapn >
                                  </ul>
                             </div>
@@ -114,6 +117,8 @@
                     <script src="/ngApp/controllers/navbarController.js"></script>
                     <script src="/ngApp/controllers/loginController.js"></script>
                     <script src="/ngApp/controllers/watchlistController.js"></script>
+                    <script src="/ngApp/controllers/registerController.js"></script>
+
 
 
 

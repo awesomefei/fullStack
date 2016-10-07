@@ -9,8 +9,15 @@ var imdbclone;
                         method: 'POST',
                         url: '/api/movies/comments/:movieId'
                     },
+                    getWatchlist: {
+                        method: 'GET',
+                        url: '/api/watchlist'
+                    }
                 });
             }
+            MovieService.prototype.getWatchlistOnservice = function () {
+                return this.movieResource.getWatchlist().$promise;
+            };
             MovieService.prototype.getMoviesOnService = function () {
                 return this.movieResource.query();
             };

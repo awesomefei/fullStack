@@ -45,7 +45,6 @@ router.post('/register', (req, res) =>{
 
     let errors = req.validationErrors();
     if(errors){
-        //?????????????????????errors is boolean then how to send it?
         res.status(400).send(errors)
     }else{
         let newUser = new User();
@@ -68,7 +67,6 @@ router.post('/register', (req, res) =>{
 router.post('/login', passport.authenticate('local', {failureRedirecct: '/login'}), (req, res) =>{
     if(req.isAuthenticated()){
         let data = {
-            //?????????????where is user from
             token:req.user.generateToken(),
             username: req.user.username,
             admin:req.user.admin

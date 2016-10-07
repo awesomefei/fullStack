@@ -41,7 +41,7 @@ app.use('/api/celebs', celebRoute_1.default);
 app.use('/api/homeMovies', homeMovieRoute_1.default);
 app.use('/api/directors', directorRoute_1.default);
 app.use('/api/tags', tagRoute_1.default);
-app.use('/api/movies1', watchlistRoute_1.default);
+app.use('/api/watchlist', watchlistRoute_1.default);
 app.get('/*', function (req, res, next) {
     if (/.js|.html|.css|templates|js|scripts/.test(req.path) || req.xhr) {
         return next({ status: 404, message: 'Not Found' });

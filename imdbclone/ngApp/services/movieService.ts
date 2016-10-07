@@ -10,6 +10,10 @@ namespace imdbclone.Services{
                     method: 'POST',
                     url:'/api/movies/comments/:movieId'
                 },
+                getWatchlist:{
+                    method:'GET',
+                    url:'/api/watchlist'
+                }
                 //  getCelebs:{
                 //      method:'GET',
                 //      url:'/api/celebs/:movieId'
@@ -19,6 +23,9 @@ namespace imdbclone.Services{
         //getCelebsOnService(){
             //return this. movieResource.getCelebs().$promise;
          //}
+         getWatchlistOnservice(){
+             return this.movieResource.getWatchlist().$promise;
+         }
         getMoviesOnService(){
             return this.movieResource.query();
         }

@@ -4,7 +4,8 @@ import Movie from '../models/movie';
 
 let watchlistRoute = express.Router();
 
-watchlistRoute.get('/', (req, res) =>{
+watchlistRoute.get('/', authorize, (req, res) =>{
+    console.log('!!!!!!!!!!!!!!!!!');
     Movie
     .find()
     .then((movies) =>{

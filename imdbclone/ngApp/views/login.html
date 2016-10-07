@@ -1,14 +1,43 @@
-<form ng-submit='vm.login()'>
-    <div class="form-group">
-        <label>Username:</label>
-        <input type="text" ng-model="vm.loginInfo.username">
-    </div>
 
-    <div class="form-group">
-        <label>Password:</label>
-        <input type="text" ng-model="vm.loginInfo.password">
-    </div>
-    <div class="form-group">
-        <input type="submit"  value="Sign-In">
-    </div>
-</form>
+
+<div class="row grid-divider">
+   <div class="col-sm-5 col">
+
+     <div class="col-padding">
+       <h3>Sign in</h3>
+
+      <button type="button" class="btn btn-primary custom " ><i class="fa fa-facebook  " aria-hidden="true"></i>Sign in with Facebook</button> <br>
+      <button type="button" class="btn btn-default custom"><i class="fa fa-google-plus-official " aria-hidden="true"></i>Sign in with Google</button><br>
+      <button type="button" class="btn btn-default custom"><i class="fa fa-amazon" aria-hidden="true"></i>Sign in with Amazon</button><br>
+      <button type="button" class="btn btn-default custom" ng-click="vm.tryTologin()">Sign in with IMDb</button><br>
+      or<br>
+
+      <button type="button" class="btn btn-warning custom" ng-click="vm.tryToRegister()"><strong>Create a New Account</strong></button>
+
+
+     </div>
+   </div>
+
+   <div class="col-sm-7">
+     <div class="col-padding">
+       <h3>Benefits of your free IMDb account</h3>
+       <img src="https://cdn.theunlockr.com/wp-content/uploads/2012/04/IMDb.jpg" alt="img" style="width:150px; height: 170px"/>
+      <strong><p>Personalized Recommendations</p></strong>
+       <p> Discover shows you'll love.</p>
+        <strong><p> Your Watchlist</p></strong>
+       <p>Track everything you want to watch and receive e-mail when movies open in theaters. </p>
+        <strong><p> Your Ratings</p></strong>
+       <p> Rate and remember everything you've seen.</p>
+       <strong><p> IMDb Community</p></strong>
+       <p> Discuss your favorite shows and movies.</p>
+        <strong><p> Contribute to IMDb</p></strong>
+       <p> Add data that will be seen by millions of people and get cool badges.</p>
+
+
+
+
+
+
+     </div>
+   </div>
+   </div>
