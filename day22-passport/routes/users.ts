@@ -11,7 +11,7 @@ let router = express.Router();
 //configure passport local strategy
 let LocalStrategy = passportLocal.Strategy;
 
-passport.serializeUser(function(user, done){
+passport.serializeUser((user, done) =>{
     done(null, user.id);
 
 });
@@ -24,7 +24,7 @@ passport.deserializeUser(function(id, done){
 
 passport.use(new LocalStrategy(function(username1, password,done){
     User
-        .findOne({username:username1.trim()})
+        .findOne({username:username1.trim().toLowerCase()})
         .then(function(user){
             //if no user found, send back error message
             if(!user){
@@ -52,8 +52,10 @@ router.get('/', function(req, res, next) {
 //register
 router.post('/register', (req, res) =>{
     req.checkBody('username', 'Username is required').notEmpty();
+    req.checkBody('email', 'Email is  required').notEmpty();
+
     req.checkBody('email', 'Email is not valid').isEmail();
-    req.checkBody('password', 'Password is not valid').notEmpty();
+    req.checkBody('password', 'Password is required').notEmpty();
     req.checkBody('comfirmPassword', 'Password do not match').equals(req.body.password);
 
     let errors = req.validationErrors();
@@ -80,10 +82,12 @@ router.post('/register', (req, res) =>{
 
 router.post('/login', passport.authenticate('local', {failureRedirect: '/longin'}), (req, res)=>{
     if(req.isAuthenticated()){
-        let token = {
-            token:req.user.generateToken()
+        let data = {
+            token:req.user.generateToken(),
+            username: req.user.username,
+            admin:req.user.admin
         }
-        res.send(token);
+        res.send(data);
 
     }else{
         res.send('you are not authenticated!');

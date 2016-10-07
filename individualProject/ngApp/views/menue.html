@@ -31,14 +31,15 @@
 -->
 
     <div class="row" ng-repeat='row in vm.menues'>
-        <div class="col-md-3" ng-repeat='m in row |filter:{name:menueTitle}'>
+        <div class="col-md-3 foodName" ng-repeat='m in row |filter:{name:menueTitle}'>
             <img
                 width="300" height="320"
                 ng-src='{{m.url}}'
                 class="img-responsive img-rounded foodImg"
                 ng-click="v.getMenueDetails(m.id)"
                 alt="image" />
-                <h2 class=''text-align='center'>{{m.name}}</h2>
+                <h2 >{{m.name}}</h2>
+                <p>{{m.price|currency}}</p>
         </div>
 
     </div>

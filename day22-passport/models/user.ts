@@ -17,21 +17,24 @@ let userSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        set:function(value: string){
-            return value.toLowerCase().trim();
-        }
+        lowercase:true,
+
 
     },
     password:{
         type:String,
         required:true,
+        min:6
+
     },
     email:{
         type:String,
         required:true,
+        match:/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
     },
     admin:{
         type:Boolean,
+        default:false,
         required:false,
     }
 

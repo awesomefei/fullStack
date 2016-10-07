@@ -29,6 +29,15 @@ function authorize(req, res, next){
         }
     });
 }
-
+function adminOnly(req, res, next){
+    let token = req['token'];
+    jwt.verify(token, 'SuperSecret', function(err, decoded){
+        if(err || !decoded.admin){
+            res.sendStatus(401);
+        }else {
+            next();
+        }
+    });
+}
 
 export default movoieRoute;

@@ -1,4 +1,7 @@
-<h2>Home</h2>
-<p>
-    {{controller.message}}
-</p>
+<h2>List of Movies</h2>
+
+<ul>
+    <li ng-repeat = 'm in controller.movies'>
+    {{m.title}} - {{m.director}}
+    </li>
+</ul>

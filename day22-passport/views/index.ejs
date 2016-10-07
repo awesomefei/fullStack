@@ -7,17 +7,28 @@
   <base href="/" />
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="/ngApp/css/site.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
 </head>
 
 <body>
   <div class="container">
-        <h1>day22-passport</h1>
-        <div>
-          <a href="/">Home</a> /
-          <a href="/about">About</a>
-        </div>
+      <div ng-controller="navbarController as vm">
+          <h1>day22-passport</h1>
+          <div>
+            <span><a href="/">Home</a> /</span>
+
+            <span ng-show='vm.isAdmin()'><a href="/about" >About </a>/</span>
+
+            <span ng-show='!vm.getUsername()'> <a href="/login">Login</a> /</span>
+
+            <span ng-show='vm.getUsername'><a href="">{{vm.getUsername()}}</a></span>
+
+            <span ng-show='vm.getUsername()'> <a href="" ng-click='vm.logout()'>Logout</a></span>
+          </div>
+      </div>
+
         <hr />
-        
+
         <ui-view></ui-view>
   </div>
 
@@ -30,7 +41,15 @@
 
   <script src="/ngApp/app.js"></script>
   <script src="/ngApp/controllers/controllers.js"></script>
+  <script src="/ngApp/controllers/loginController.js"></script>
+  <script src="/ngApp/controllers/navbarController.js"></script>
+
+
   <script src="/ngApp/services/services.js"></script>
+  <script src="/ngApp/services/loginService.js"></script>
+  <script src="/ngApp/services/movieService.js"></script>
+
+
 
 </body>
 

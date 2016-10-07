@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/ngApp/css/site.css"/>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://use.fontawesome.com/c219aebcb3.js"></script>
 </head>
 
@@ -18,84 +18,84 @@
 
         <div class="wrapper"></div>
 
-    
-            <nav class="navbar navbar-inverse navbar-fixed-top">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLinks">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">My Site</a>
+        <div class="container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLinks">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/">
+                                <img src="https://momofuku.com/app/themes/momofuku/img/momo-group.svg" alt="image" /></a>
+                            </div>
+                            <div id="navLinks" class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class='active'><a href="/" >Home</a></li>
+
+                                    <li class='dropdown'><a href="/menue" class="dropdown-toggle" data-toggle="dropdown">Menue<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Brunch</a></li>
+                                            <li><a href="#">Lunch</a></li>
+                                            <li><a href="#">Dinner</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Dessert</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Wine</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class='dropdown'><a href="/about" class="dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Our Story</a></li>
+                                            <li><a href="#">Gourmet Bolg</a></li>
+                                            <li><a href="https://momofuku.com/our-company/friends/">Friends + partner</a></li>
+                                            <li class="divider">Careers</li>
+                                            <li><a href="https://momofuku.com/our-company/giftcards/">Gift card</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="#">Careers</a></li>
+                                        </ul></li>
+
+
+
+                                        <li><a href="/contact">Contact</a></li>
+                                        <li><a href="/gourpdining">Group Dining</a></li>
+                                        <li><a href="/private">Private Event</a></li>
+                                        <li><a href="/checkout">Cart</a></li>
+                                    </ul>
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <hr/>
+
+                        <ui-view></ui-view>
+
+                    </div>
                 </div>
-            <div id="navLinks" class="collapse navbar-collapse">
-             <ul class="nav navbar-nav">
-                <li class='active'><a href="/" >Home</a></li>
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="/bower_components/angular-touch/angular-touch.min.js"></script>
+        <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
-                <li class='dropdown'><a href="/menue" class="dropdown-toggle" data-toggle="dropdown">Menue<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">分离的链接</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">另一个分离的链接</a></li>
-                    </ul>
-                </li>
-
-                <li class='dropdown'><a href="/about" class="dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Our Story</a></li>
-                        <li><a href="#">Gourmet Bolg</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                        <li class="divider">Careers</li>
-                        <li><a href="#">分离的链接</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">另一个分离的链接</a></li>
-                    </ul></li>
+        <script src="/ngApp/app.js"></script>
+        <script src="/ngApp/services/menueServices.js"></script>
+        <script src="/ngApp/controllers/controllers.js"></script>
+        <script src="/ngApp/controllers/menue/menueDetailController.js"></script>
+        <script src="/ngApp/controllers/menue/menueCreateController.js"></script>
+        <script src="/ngApp/controllers/menue/menueController.js"></script>
+        <script src="/ngApp/controllers/menue/menueContactController.js"></script>
 
 
 
-                <li><a href="/contact">Contact</a></li>
-                <li><a href="/gourpdining">Group Dining</a></li>
-                <li><a href="/private">Private Event</a></li>
-                <li><a href="/checkout">Cart</a></li>
+    </body>
 
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-        </div>
-    </nav>
-    <hr />
-    <p>
-
-    </p>
-    <ui-view></ui-view>
-</div>
-
-<script src="/bower_components/angular/angular.min.js"></script>
-<script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
-<script src="/bower_components/angular-animate/angular-animate.min.js"></script>
-<script src="/bower_components/angular-touch/angular-touch.min.js"></script>
-<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-
-<script src="/ngApp/app.js"></script>
-<script src="/ngApp/services/menueServices.js"></script>
-<script src="/ngApp/controllers/controllers.js"></script>
-<script src="/ngApp/controllers/menue/menueDetailController.js"></script>
-<script src="/ngApp/controllers/menue/menueCreateController.js"></script>
-<script src="/ngApp/controllers/menue/menueController.js"></script>
-<script src="/ngApp/controllers/menue/menueContactController.js"></script>
-
-
-
-</body>
-
-</html>
+    </html>

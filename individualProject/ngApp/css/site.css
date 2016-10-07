@@ -2,6 +2,15 @@
      padding-top:100px;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+    height: 100%;
+    width: auto;
+}
+
 
 .wrapper {
   background-image: url('http://ykhrestaurants.com/wp-content/uploads/slide21.jpg');
@@ -14,5 +23,11 @@
 .foodImg {
           cursor: pointer;
           cursor: hand;
-          
+
       }
+
+.container {
+          padding-left: 3px !important;
+          padding-right: 3px !important;
+
+}

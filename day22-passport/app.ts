@@ -28,13 +28,12 @@ app.set('view engine', 'ejs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(bearerToken());
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //passport
-
+app.use(bearerToken());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(expressValidator());
