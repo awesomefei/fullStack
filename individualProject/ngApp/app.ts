@@ -33,7 +33,12 @@ namespace individualProject {
                 controller:individualProject.Controllers.MenueCreateController,
                 controllerAs:'vm'
             })
-
+            .state('drink', {
+                url:'/drink',
+                templateUrl:'/ngApp/views/drink.html',
+                controller:individualProject.Controllers.DrinkController,
+                controllerAs:'vm'
+            })
             .state('contact', {
                 url:'/contact',
                 templateUrl:'/ngApp/views/contact.html',

@@ -3,8 +3,8 @@
 <select ng-model="selectedContry" ng-options="c.country for c in vm.contries"></select>
 <!--<h1>{{selectedContry}}</h1>
 <!--<h1>{{selectedContry._id}}</h1>-->
-<div class="row form-group">
-    <div class="col-md-3 form-group" ng-repeat ='c in vm.contries|filter:selectedContry' >
+<div class="row form-group" ng-repeat ='c in vm.contries|filter:selectedContry'>
+    <div class="col-md-12"  >
         <!--
         <img
         ng-src="{{c.ImageUrl}}"
@@ -21,11 +21,11 @@
                 {{c.location}}
             </p>
 
-            <p>
-                Phone: {{c.phone}}
+            <p><h3>Phone: </h3>{{c.phone}}
             </p>
             <!--
         </div>
         -->
+        <hr>
     </div>
 </div>

@@ -1,13 +1,12 @@
 import * as express from 'express';
-import database from '../db';
 import * as mongodb from 'mongodb';
+import Food from '../models/food'
 
 let foodRouter = express.Router();
-
 let ObjectId = mongodb.ObjectID;
 
 foodRouter.get('/', (req,res) =>{
-    database.db.collection('foods').find().toArray()
+    Food.find()
     .then((foods) =>{
         console.log('get foods');
         res.send(foods);
@@ -19,7 +18,7 @@ foodRouter.get('/', (req,res) =>{
 
 foodRouter.get('/:id', (req,res) =>{
     let foodId = new ObjectId(req.params['id']);
-    database.db.collection('foods').findOne({_id:foodId})
+    Food.findOne({_id:foodId})
     .then((food) =>{
         res.send(food);
     })
@@ -32,7 +31,7 @@ foodRouter.put('/', (req,res) =>{
     let foodId = new ObjectId(req.body._id)
     req.body._id = foodId;
     if(req.body.name && req.body.price && req.body.url){
-        database.db.collection('foods').update({_id:foodId}, req.body, {upsert:false})
+        Food.update({_id:foodId}, req.body, {upsert:false})
         .then(() =>{
             res.sendStatus(201);
         })
@@ -45,23 +44,24 @@ foodRouter.put('/', (req,res) =>{
 });
 
 foodRouter.post('/', (req,res) =>{
-    if(req.body.name && req.body.price && req.body.url){
-        database.db.collection('foods').save(req.body)
-        .then(() =>{
-            res.sendStatus(201);
+    let food = new Food();
+    food.name = req.body.name;
+    food.price = req.body.price;
+    food.url = req.body.url;
+        food.save()
+        .then((food) =>{
+            res.status(201).send(food);
         })
         .catch((err) =>{
             res.sendStatus(500);
         })
-    }else{
-        res.sendStatus(400);
-    }
+
 });
 
 foodRouter.delete('/:id', (req,res) =>{
     let foodId = new ObjectId(req.params['id']);
     if(req.params['id']){
-        database.db.collection('foods').deleteOne({_id:foodId})
+        Food.findByIdAndRemove({_id:foodId})
         .then(() =>{
             res.sendStatus(200);
         })
@@ -72,20 +72,6 @@ foodRouter.delete('/:id', (req,res) =>{
         res.sendStatus(400);
     }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

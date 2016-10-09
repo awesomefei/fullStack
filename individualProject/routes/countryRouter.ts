@@ -1,13 +1,14 @@
 import * as express from 'express';
 import * as mongodb from 'mongodb';
 import database from '../db';
+import Country from '../models/contry';
 
 let ObjectId = mongodb.ObjectID;
 
 let countryRouter = express.Router();
 
 countryRouter.get('/', (req, res) =>{
-    database.db.collection('countries').find().toArray()
+    Country.find()
     .then((countries) =>{
         res.send(countries);
     })
@@ -18,7 +19,7 @@ countryRouter.get('/', (req, res) =>{
 
 countryRouter.get('/:id',(req, res) =>{
     let countryId = new ObjectId(req.params['id']);
-    database.db.collection('countries').findOne({_id : countryId})
+    Country.findOne({_id : countryId})
     .then((country) =>{
         res.send(country);
     })
@@ -28,24 +29,24 @@ countryRouter.get('/:id',(req, res) =>{
 });
 
 countryRouter.post('/', (req, res) =>{
-    if(req.body.country && req.body.location && req.body.phone){
-        database.db.collection('countries').save(req.body)
-        .then(() =>{
-            res.sendStatus(201);
-        })
-        .catch(() =>{
-            res.sendStatus(500);
-        })
-    }else{
-        res.sendStatus(400);
-    }
+    let country = new Country();
+    country.location = req.body.location;
+    country.phone = req.body.phone;
+
+    country.save()
+    .then((food) =>{
+        res.status(201).send(food)
+    })
+    .catch((err) =>{
+        res.sendStatus(500);
+    })
 });
 
 countryRouter.put('/', (req, res) =>{
     let countryId = new ObjectId(req.body._id);
     req.body._id = countryId;
         if(req.body.country && req.body.location && req.body.phone){
-            database.db.collection('countries').update({_id:countryId}, req.body, {upsert:false})
+            Country.update({_id:countryId}, req.body, {upsert:false})
             .then(() =>{
                 res.sendStatus(201);
             })
@@ -60,7 +61,7 @@ countryRouter.put('/', (req, res) =>{
 countryRouter.delete('/:id', (req, res) =>{
     let countryId = new ObjectId(req.params['id']);
     if(req.params['id']){
-        database.db.collection('countries').deleteOne({_id: countryId})
+        Country.findByIdAndRemove({_id: countryId})
         .then(() =>{
             res.send(201);
         })

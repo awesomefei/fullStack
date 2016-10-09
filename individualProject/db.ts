@@ -1,14 +1,17 @@
-import * as mongodb from 'mongodb';
-const connectionString =  'mongodb://admin:Secret123!@ds035806.mlab.com:35806/awesomefile';
-export default class DataBase{
-    public static db:mongodb.Db;
+import * as mongoose from 'mongoose';
+const URL ='mongodb://admin:Secret123!@ds035806.mlab.com:35806/awesomefile';
+
+class Database{
     public static connect(){
-        mongodb.MongoClient.connect(connectionString)
-        .then((db) =>{
-            this.db = db;
-        })
-        .catch((err) =>{
-            console.log(err);
+        mongoose.connect(URL);
+
+        let db = mongoose.connection;
+        db.on('err', function(){
+            console.log('connection err');
+        });
+        db.once('open', function(){
+            console.log('connected to database!!!');
         })
     }
 }
+export default Database;

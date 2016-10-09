@@ -5,12 +5,21 @@ import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
+
+import * as passport from 'passport';
+
 import Database from './db';
+
+const expressValidator = require('express-validator');
+const bearerToken = require('express-bearer-token');
+
 
 import routes from './routes/index';
 import users from './routes/users';
 import foodRouter from './routes/foodRouter';
 import countryRouter from './routes/countryRouter';
+import drinkRoute from './routes/drinkRoute';
+
 
 
 let app = express();
@@ -26,6 +35,12 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(bearerToken());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(expressValidator());
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components', express.static(path.join(__dirname, 'bower_components')));
@@ -34,8 +49,10 @@ app.use('/api', express.static(path.join(__dirname, 'api')));
 
 app.use('/', routes);
 app.use('/users', users);
+
 app.use('/api/foods', foodRouter);
 app.use('/api/countries', countryRouter);
+app.use('/api/drinks',drinkRoute);
 
 // APIs
 // app.use('/api', require('./api/makes'));
