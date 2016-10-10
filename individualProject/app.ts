@@ -6,9 +6,9 @@ import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
 
+import Database from './db';
 import * as passport from 'passport';
 
-import Database from './db';
 
 const expressValidator = require('express-validator');
 const bearerToken = require('express-bearer-token');
@@ -19,12 +19,11 @@ import users from './routes/users';
 import foodRouter from './routes/foodRouter';
 import countryRouter from './routes/countryRouter';
 import drinkRoute from './routes/drinkRoute';
-
-
-
-let app = express();
+import orderRoute from './routes/orderRoute';
 
 Database.connect();
+let app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -34,7 +33,8 @@ app.set('view engine', 'ejs');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false
+ }));
 
 app.use(bearerToken());
 app.use(passport.initialize());
@@ -48,7 +48,9 @@ app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 app.use('/api', express.static(path.join(__dirname, 'api')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/api/users', users);
+app.use('/api/orders', orderRoute);
+
 
 app.use('/api/foods', foodRouter);
 app.use('/api/countries', countryRouter);

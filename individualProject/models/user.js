@@ -3,6 +3,10 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var userSchema = new mongoose.Schema({
+    orders: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Order'
+        }],
     username: {
         type: String,
         required: true,
@@ -11,17 +15,16 @@ var userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
-    },
-    admin: {
-        type: Boolean,
-        required: false,
-        default: false
+        required: true,
     },
     email: {
         type: String,
         required: true,
         match: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+    },
+    admin: {
+        type: Boolean,
+        required: false,
     }
 });
 userSchema.method('setPassword', function (password) {
@@ -36,7 +39,7 @@ userSchema.method('generateToken', function () {
         id: this._id,
         username: this.username,
         admin: this.admin
-    }, 'SuperSecrete');
+    }, 'SuperSecret');
 });
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = mongoose.model('User', userSchema);
