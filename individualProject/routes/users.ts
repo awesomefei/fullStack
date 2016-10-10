@@ -48,20 +48,28 @@ passport.use(new LocalStrategy(function(username1, password,done){
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!')
+    User.find()
+    .populate('orders')
+    .then((users) =>{
+        res.send(users);
+    })
 });
 
 router.post('/addorders/:userId', (req, res) =>{
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
+    console.log('________________________________');
 
 //which one?      let userId = new ObjectId(req.params['userId']);
-    let userId = new ObjectId(req.body.orderId);
-    let orderId = new Order(req.body.orderId);
+    let userId = new ObjectId(req.params['userId']);
+    console.log("userId  " + userId);
+    let orderId = new ObjectId(req.body.orderId);
+    console.log("orderId  " + orderId);
 
-    Order.update({_id:userId}, {$push:{orders:orderId}})
+    User.update({_id:userId}, {$push:{orders:orderId}})
 
-    .then((order) =>{
-            console.log(this.orders);
+    .then((user) =>{
+            console.log("!!!!!!!!!!!!! add success");
+            console.log(user.orders);
             res.sendStatus(201);
         })
         .catch((err) =>{

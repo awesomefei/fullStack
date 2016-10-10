@@ -8,7 +8,7 @@ export interface IUser extends mongoose.Document{
     password:string,
     admin:boolean,
     email:string,
-    orders:Order.IOrder[],
+    orders: Order.IOrder[],
     validatePassword(password),
     setPassword(password),
     generateToken()

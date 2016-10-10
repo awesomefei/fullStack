@@ -1,11 +1,9 @@
 "use strict";
-var _this = this;
 var express = require('express');
 var passport = require('passport');
 var passportLocal = require('passport-local');
 var user_1 = require('../models/user');
 var mongodb = require('mongodb');
-var order_1 = require('../models/order');
 var ObjectId = mongodb.ObjectID;
 var router = express.Router();
 var LocalStrategy = passportLocal.Strategy;
@@ -35,15 +33,23 @@ passport.use(new LocalStrategy(function (username1, password, done) {
     });
 }));
 router.get('/', function (req, res, next) {
-    res.send('respond with a resource');
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
+    user_1.default.find()
+        .populate('orders')
+        .then(function (users) {
+        res.send(users);
+    });
 });
 router.post('/addorders/:userId', function (req, res) {
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!');
-    var userId = new ObjectId(req.body.orderId);
-    var orderId = new order_1.default(req.body.orderId);
-    order_1.default.update({ _id: userId }, { $push: { orders: orderId } })
-        .then(function (order) {
-        console.log(_this.orders);
+    console.log('________________________________');
+    var userId = new ObjectId(req.params['userId']);
+    console.log("userId  " + userId);
+    var orderId = new ObjectId(req.body.orderId);
+    console.log("orderId  " + orderId);
+    user_1.default.update({ _id: userId }, { $push: { orders: orderId } })
+        .then(function (user) {
+        console.log("!!!!!!!!!!!!! add success");
+        console.log(user.orders);
         res.sendStatus(201);
     })
         .catch(function (err) {
