@@ -9,6 +9,7 @@ let orderRoute = express.Router();
 
 orderRoute.get('/', authorize, (req, res) =>{
     Order.find()
+    //.where('userId').equals()
     .populate('foods')
     .then((orders) =>{
 

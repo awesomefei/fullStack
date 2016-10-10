@@ -12,6 +12,8 @@ namespace individualProject.Services{
             return this.cartResource.query().$promise;
         }
 
+        //addFoodOnService(food, )
+
     }
     angular.module('individualProject').service('cartService',CartService);
 }

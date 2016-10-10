@@ -3,14 +3,17 @@ var individualProject;
     var Controllers;
     (function (Controllers) {
         var MenueController = (function () {
-            function MenueController($state, $uibModal, menueService) {
+            function MenueController($state, $uibModal, menueService, orderService) {
                 this.$state = $state;
                 this.$uibModal = $uibModal;
                 this.menueService = menueService;
+                this.orderService = orderService;
                 this.message = "Hello from menuController";
                 this.menues = [];
                 this.getMenues();
             }
+            MenueController.prototype.addFoodToCart = function () {
+            };
             MenueController.prototype.getMenues = function () {
                 var _this = this;
                 this.menueService.getMenuesOnServiceSide()

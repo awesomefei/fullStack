@@ -6,9 +6,15 @@ namespace individualProject.Controllers{
         constructor(
             private $state:ng.ui.IStateService,
             private $uibModal: ng.ui.bootstrap.IModalService,
-            private menueService:individualProject.Services.MenueService){
+            private menueService:individualProject.Services.MenueService,
+            private orderService: individualProject.Services.CartService
+        ){
             this.getMenues();
             }
+
+        addFoodToCart(){
+            
+        }
 
         getMenues(){
             this.menueService.getMenuesOnServiceSide()

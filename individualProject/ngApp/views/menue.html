@@ -39,7 +39,9 @@
                 ng-click="v.getMenueDetails(m.id)"
                 alt="image" />
                 <h2 >{{m.name}}</h2>
-                <p>{{m.price|currency}}</p>
+                <p>{{m.price|currency}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <button type="button"ng-click='vm.addFoodToCart()' >
+                        Add to cart</button></p>
         </div>
 
     </div>
