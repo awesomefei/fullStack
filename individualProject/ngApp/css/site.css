@@ -1,7 +1,9 @@
 .body{
      padding-top:100px;
 }
-
+.footer p{
+    text-align: center;
+}
 .navbar-brand {
   padding: 0px;
 }

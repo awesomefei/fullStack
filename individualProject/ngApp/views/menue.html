@@ -1,6 +1,7 @@
 <h1>You can find all you want here</h1>
 
-<h3>
+
+<h3 ng-show=''>
     <a href="/menueCreate">Create a new food...</a>
 </h3>
 
@@ -29,7 +30,6 @@
 
     </div>
 -->
-{{vm.message}}
     <div class="row" ng-repeat='row in vm.menues'>
         <div class="col-md-3 foodName" ng-repeat='m in row |filter:{name:menueTitle}'>
             <img

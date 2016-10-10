@@ -6,7 +6,12 @@ namespace individualProject.Services{
 
             private $resource:ng.resource.IResourceService
         ){
-            this.drinkResource = this.$resource('/api/drinks:id');
+            this.drinkResource = this.$resource('/api/drinks:id', null, {
+                edit:{
+                    method:'PUT',
+                    url:'/api/drinks'
+                }
+            });
         }
         isAdmin(){
             return this.$window.localStorage.getItem('admin');
@@ -27,6 +32,7 @@ namespace individualProject.Services{
             return this.drinkResource.delete({id:id}).$promise;
         }
         editDrinkOnService(drink){
+            console.log(drink);
             return this.drinkResource.edit(drink).$promise;
         }
     }

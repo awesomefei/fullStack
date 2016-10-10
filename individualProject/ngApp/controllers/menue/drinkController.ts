@@ -12,26 +12,38 @@ namespace individualProject.Controllers{
             this.getDrinks();
         }
         isAdmin(){
-            console.log('@@@@@@@@@@@@@@@@@@ controller @@@@@@@@@@@ isAdmin' )
-
-            return this.loginService.isAdmin();
+            return this.loginService.isAdmin() == 'true';
         }
         getDrinks(){
             this.drinks = this.drinkService.getDrinksOnService();
         }
 
-        // editDrink(){
-        //
-        // }
 
         tryAddDrink(){
-            this.$uibModal.open({
-                templateUrl:'/ngApp/views/addDrink.html',
+            let modal:any = this.$uibModal;
+            modal.open({
+                templateUrl:'/ngApp/views/drinkButton/addDrink.html',
                 controller:individualProject.Controllers.AddDrinkController,
                 controllerAs:'vm',
                 size:'ml'
+            });
+            modal.result.then(function(){
+                console.log('then')
+            }).catch(function(){
+                console.log('catch')
+            }).finally(function(){
+                console.log('finally')
+            });
+
+        }
+
+        tryEditDrink(){
+            this.$uibModal.open({
+                templateUrl:'/ngApp/views/drinkButton/editDrink.html',
+                controller:individualProject.Controllers.EditDrinkController,
+                controllerAs:'vm',
+                size:'ml'
             })
-            
         }
 
 

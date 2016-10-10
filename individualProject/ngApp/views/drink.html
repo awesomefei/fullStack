@@ -26,15 +26,15 @@
                 <p>
                     {{d.name}} - {{d.detail}} <strong>{{d.price|currency}}</strong>
                 </p>
-                <p ng-show=''>
-
+                <p ng-show='vm.isAdmin()'>
+                    userId: {{d._id}}
                 </p>
             </div>
             {{vm.isAdmin()}}
 
             <div ng-show="vm.isAdmin()">
                 <button ng-click='vm.tryAddDrink()' type="button" class="btn btn-success btn-block">Add</button>
-                <button ng-click='vm.editDrink()' type="button" class="btn btn-default btn-block">Edit</button>
+                <button ng-click='vm.tryEditDrink()' type="button" class="btn btn-default btn-block">Edit</button>
                 <button ng-click='vm.deleteDrink()' type="button" class="btn btn-danger btn-block">Delete</button>
             </div>
         <!-- </div> -->

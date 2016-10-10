@@ -6,7 +6,12 @@ var individualProject;
             function DrinkService($window, $resource) {
                 this.$window = $window;
                 this.$resource = $resource;
-                this.drinkResource = this.$resource('/api/drinks:id');
+                this.drinkResource = this.$resource('/api/drinks:id', null, {
+                    edit: {
+                        method: 'PUT',
+                        url: '/api/drinks'
+                    }
+                });
             }
             DrinkService.prototype.isAdmin = function () {
                 return this.$window.localStorage.getItem('admin');
@@ -24,6 +29,7 @@ var individualProject;
                 return this.drinkResource.delete({ id: id }).$promise;
             };
             DrinkService.prototype.editDrinkOnService = function (drink) {
+                console.log(drink);
                 return this.drinkResource.edit(drink).$promise;
             };
             return DrinkService;

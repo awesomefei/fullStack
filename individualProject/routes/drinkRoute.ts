@@ -44,7 +44,8 @@ drinkRoute.post('/', (req, res) =>{
 });
 
 drinkRoute.put('/', (req, res) =>{
-
+    console.log('drinkRoute');
+    console.log(req.body);
     Drink.findByIdAndUpdate(req.body._id, req.body)
     .then((drink) =>{
         res.send(drink);

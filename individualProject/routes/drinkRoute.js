@@ -40,6 +40,8 @@ drinkRoute.post('/', function (req, res) {
     });
 });
 drinkRoute.put('/', function (req, res) {
+    console.log('drinkRoute');
+    console.log(req.body);
     drink_1.default.findByIdAndUpdate(req.body._id, req.body)
         .then(function (drink) {
         res.send(drink);
