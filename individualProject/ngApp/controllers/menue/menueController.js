@@ -3,11 +3,10 @@ var individualProject;
     var Controllers;
     (function (Controllers) {
         var MenueController = (function () {
-            function MenueController($state, $uibModal, menueService, orderService) {
+            function MenueController($state, $uibModal, menueService) {
                 this.$state = $state;
                 this.$uibModal = $uibModal;
                 this.menueService = menueService;
-                this.orderService = orderService;
                 this.message = "Hello from menuController";
                 this.menues = [];
                 this.getMenues();

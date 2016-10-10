@@ -15,6 +15,8 @@ var individualProject;
                 return this.loginResource.save(user).$promise;
             };
             LoginService.prototype.isAdmin = function () {
+                console.log('@@@@@@@@@@@@@@@@@@ isAdmin');
+                console.log(this.$window.localStorage.getItem('admin'));
                 return this.$window.localStorage.getItem('admin');
             };
             LoginService.prototype.getUsername = function () {

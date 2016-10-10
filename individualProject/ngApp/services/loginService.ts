@@ -16,6 +16,8 @@ namespace individualProject.Services{
                 }
 
         isAdmin(){
+            console.log('@@@@@@@@@@@@@@@@@@ isAdmin' )
+            console.log(this.$window.localStorage.getItem('admin'));
             return this.$window.localStorage.getItem('admin');
         }
 

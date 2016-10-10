@@ -30,6 +30,7 @@ drinkRoute.get('/:id',(req, res) =>{
 drinkRoute.post('/', (req, res) =>{
     let drink = new Drink();
     drink.name = req.body.name;
+    console.log(req.body.name);
     drink.price = req.body.price;
     drink.detail = req.body.detail;
     drink.url = req.body.url;

@@ -20,7 +20,7 @@
 
         <div class="container">
             <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="container-fluid">
+                    <div class="container-fluid" ng-controller="navbarController as vm">
                         <div class="navbar-header">
                             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navLinks">
                                 <span class="icon-bar"></span>
@@ -50,7 +50,7 @@
 
                                     <li class='dropdown'><a href="/about" class="dropdown-toggle" data-toggle="dropdown">About<span class="caret"></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="#">Our Story</a></li>
+                                            <li><a href="https://momofuku.com/our-company/team/">Our Story</a></li>
                                             <li><a href="#">Gourmet Bolg</a></li>
                                             <li><a href="https://momofuku.com/our-company/friends/">Friends + partner</a></li>
                                             <li class="divider">Careers</li>
@@ -67,8 +67,12 @@
                                         <li><a href="/cart">Cart</a></li>
                                     </ul>
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                                        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                                        <li ng-show='!vm.getUsername()' ><a href="/register"><span class="glyphicon glyphicon-user" ></span> Sign Up</a></li>
+                                       <li ng-show='!vm.getUsername()'><a href="/login"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                                       <li ng-show='vm.getUsername()'><a href="#">{{vm.mesesage}} {{vm.getUsername()}}</a> </li>
+                                       <li ng-show='vm.getUsername()' ng-click='vm.logout()'><a href="/login"><span class="glyphicon glyphicon-log-out" ></span>Logout</a></li>
+
+                                </ul>
                                     </ul>
                                 </div>
                             </nav>
@@ -104,6 +108,8 @@
         <script src="/ngApp/controllers/login/loginController.js"></script>
         <script src="/ngApp/controllers/login/navbarController.js"></script>
         <script src="/ngApp/controllers/login/registerController.js"></script>
+        <script src="/ngApp/controllers/edit/addController.js"></script>
+
 
 
 

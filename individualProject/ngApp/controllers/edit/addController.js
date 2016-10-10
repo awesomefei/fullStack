@@ -7,6 +7,9 @@ var individualProject;
                 this.drinkService = drinkService;
                 this.message = 'Hello from add drink modal';
             }
+            AddDrinkController.prototype.getDrink = function () {
+                this.drink = this.drinkService.getDrinkOnservice(this.drinkId);
+            };
             AddDrinkController.prototype.addDrink = function () {
                 this.drinkService.saveDrinkOnService(this.drink);
             };

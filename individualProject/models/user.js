@@ -24,6 +24,7 @@ var userSchema = new mongoose.Schema({
     },
     admin: {
         type: Boolean,
+        default: true,
         required: false,
     }
 });

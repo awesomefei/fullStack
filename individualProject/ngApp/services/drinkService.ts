@@ -2,9 +2,15 @@ namespace individualProject.Services{
     export class DrinkService{
         private drinkResource;
         constructor(
+            private $window:ng.IWindowService,
+
             private $resource:ng.resource.IResourceService
         ){
             this.drinkResource = this.$resource('/api/drinks:id');
+        }
+        isAdmin(){
+            return this.$window.localStorage.getItem('admin');
+
         }
         getDrinksOnService(){
             return this.drinkResource.query();

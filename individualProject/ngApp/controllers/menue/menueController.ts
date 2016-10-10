@@ -7,13 +7,13 @@ namespace individualProject.Controllers{
             private $state:ng.ui.IStateService,
             private $uibModal: ng.ui.bootstrap.IModalService,
             private menueService:individualProject.Services.MenueService,
-            private orderService: individualProject.Services.CartService
+            //private orderService: individualProject.Services.CartService
         ){
             this.getMenues();
             }
 
         addFoodToCart(){
-            
+
         }
 
         getMenues(){

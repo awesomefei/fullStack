@@ -27,6 +27,7 @@ drinkRoute.get('/:id', function (req, res) {
 drinkRoute.post('/', function (req, res) {
     var drink = new drink_1.default();
     drink.name = req.body.name;
+    console.log(req.body.name);
     drink.price = req.body.price;
     drink.detail = req.body.detail;
     drink.url = req.body.url;

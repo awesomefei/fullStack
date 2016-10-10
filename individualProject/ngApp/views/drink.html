@@ -1,13 +1,16 @@
 
 <div class="container">
+
     <a href="/menue"><p>
         {{vm.message}}
     </p></a>
-    <div class="row">
+    <div class="row" >
         <div class="col-sm-6">
             <img
             class="img-responsive"
-            src="https://momofuku-assets.s3.amazonaws.com/uploads/sites/10/2015/10/countryhamsredeyegravy-600x900.jpg" alt="" />
+            src="https://momofuku-assets.s3.amazonaws.com/uploads/sites/23/2015/11/G5A8488-1350x900.jpg"
+            style=' height: 480px;'
+            alt="" />
         </div>
         <div class="col-sm-1">
 
@@ -23,16 +26,18 @@
                 <p>
                     {{d.name}} - {{d.detail}} <strong>{{d.price|currency}}</strong>
                 </p>
+                <p ng-show=''>
+
+                </p>
             </div>
-            <!-- <div ng-show="vm.getAdmin()"> -->
+            {{vm.isAdmin()}}
+
+            <div ng-show="vm.isAdmin()">
                 <button ng-click='vm.tryAddDrink()' type="button" class="btn btn-success btn-block">Add</button>
                 <button ng-click='vm.editDrink()' type="button" class="btn btn-default btn-block">Edit</button>
                 <button ng-click='vm.deleteDrink()' type="button" class="btn btn-danger btn-block">Delete</button>
-            <!-- </div> -->
-                </div>
-
+            </div>
+        <!-- </div> -->
+        </div>
     </div>
-
-
-
 </div>

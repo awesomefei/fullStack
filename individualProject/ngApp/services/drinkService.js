@@ -3,10 +3,14 @@ var individualProject;
     var Services;
     (function (Services) {
         var DrinkService = (function () {
-            function DrinkService($resource) {
+            function DrinkService($window, $resource) {
+                this.$window = $window;
                 this.$resource = $resource;
                 this.drinkResource = this.$resource('/api/drinks:id');
             }
+            DrinkService.prototype.isAdmin = function () {
+                return this.$window.localStorage.getItem('admin');
+            };
             DrinkService.prototype.getDrinksOnService = function () {
                 return this.drinkResource.query();
             };

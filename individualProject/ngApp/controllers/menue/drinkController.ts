@@ -7,14 +7,19 @@ namespace individualProject.Controllers{
         constructor(
             private drinkService:individualProject.Services.DrinkService,
             private $uibModal:ng.ui.bootstrap.IModalService,
-
+            private loginService:individualProject.Services.LoginService,
         ){
             this.getDrinks();
+        }
+        isAdmin(){
+            console.log('@@@@@@@@@@@@@@@@@@ controller @@@@@@@@@@@ isAdmin' )
+
+            return this.loginService.isAdmin();
         }
         getDrinks(){
             this.drinks = this.drinkService.getDrinksOnService();
         }
-        
+
         // editDrink(){
         //
         // }
@@ -24,8 +29,9 @@ namespace individualProject.Controllers{
                 templateUrl:'/ngApp/views/addDrink.html',
                 controller:individualProject.Controllers.AddDrinkController,
                 controllerAs:'vm',
-                size:'sm'
+                size:'ml'
             })
+            
         }
 
 
