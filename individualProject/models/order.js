@@ -19,5 +19,8 @@ var orderSchema = new mongoose.Schema({
         default: new Date()
     }
 });
+orderSchema.method('getSum', function () {
+    return 100;
+});
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = mongoose.model('Order', orderSchema);

@@ -30,4 +30,10 @@ let orderSchema = new mongoose.Schema({
         default:new Date()
     }
 })
+
+orderSchema.method('getSum', function(this){
+    return 100;
+});
+
+
 export default mongoose.model<IOrder>('Order', orderSchema);

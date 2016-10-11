@@ -8,15 +8,15 @@ let ObjectId = mongodb.ObjectID;
 let orderRoute = express.Router();
 
 orderRoute.get('/', authorize, (req, res) =>{
-    console.log(req.user.id);
+    console.log("%%%$$###@" +req.user.id);
     let userId = new ObjectId(req.user.id)
 
     Order.findOne()
     .where({userId:userId})
-    //.where('userId').equals()
     .populate('foods')
     .then((orders) =>{
-        console.log(orders);
+        //console.log("%%%$$###@" + orders[0].getSum());
+        console.log("%%%$$###@" + orders);
         res.send(orders);
     })
     .catch((err) =>{
@@ -41,14 +41,16 @@ orderRoute.post('/', authorize,(req,res) =>{
 orderRoute.post('/addfood/:foodId', authorize, (req, res) =>{
     //let orderId = new ObjectId(req.params['orderId']);
     let foodId = new ObjectId(req.params['foodId']);
-    console.log('------')
-    console.log(req.user.id);
+    console.log('----------------------------')
+    console.log('req.user.id' + req.user.id);
+    console.log('foodId' +req.params['foodId']);
+
 
     let userId = new ObjectId(req.user.id);
 
     Order.update({userId:userId}, {$push:{foods:foodId}})
         .then((order) =>{
-            console.log(order);
+            console.log('order' + order);
             res.sendStatus(201);
         })
         .catch((err) =>{

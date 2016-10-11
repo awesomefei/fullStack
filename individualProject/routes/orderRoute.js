@@ -6,13 +6,13 @@ var jwt = require('jsonwebtoken');
 var ObjectId = mongodb.ObjectID;
 var orderRoute = express.Router();
 orderRoute.get('/', authorize, function (req, res) {
-    console.log(req.user.id);
+    console.log("%%%$$###@" + req.user.id);
     var userId = new ObjectId(req.user.id);
     order_1.default.findOne()
         .where({ userId: userId })
         .populate('foods')
         .then(function (orders) {
-        console.log(orders);
+        console.log("%%%$$###@" + orders);
         res.send(orders);
     })
         .catch(function (err) {
@@ -33,12 +33,13 @@ orderRoute.post('/', authorize, function (req, res) {
 });
 orderRoute.post('/addfood/:foodId', authorize, function (req, res) {
     var foodId = new ObjectId(req.params['foodId']);
-    console.log('------');
-    console.log(req.user.id);
+    console.log('----------------------------');
+    console.log('req.user.id' + req.user.id);
+    console.log('foodId' + req.params['foodId']);
     var userId = new ObjectId(req.user.id);
     order_1.default.update({ userId: userId }, { $push: { foods: foodId } })
         .then(function (order) {
-        console.log(order);
+        console.log('order' + order);
         res.sendStatus(201);
     })
         .catch(function (err) {
