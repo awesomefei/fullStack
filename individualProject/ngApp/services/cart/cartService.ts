@@ -7,9 +7,12 @@ namespace individualProject.Services{
         ){
             this.cartResource = $resource('/api/orders')
         }
+        getOrderOnService(){
+
+        }
 
         getOrdersOnService(){
-            return this.cartResource.query().$promise;
+            return this.cartResource.get().$promise;
         }
 
         //addFoodOnService(food, )

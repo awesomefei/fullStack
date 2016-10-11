@@ -17,7 +17,18 @@ namespace individualProject.Controllers{
         getDrinks(){
             this.drinks = this.drinkService.getDrinksOnService();
         }
-
+        tryDeleteDrink(){
+            this.$uibModal.open({
+                templateUrl:'/ngApp/views/drinkButton/deleteDrink.html',
+                controller:individualProject.Controllers.DeleteDrinkController,
+                controllerAs:'vm',
+                size:'ml'
+            })
+            .result
+            .then(()=>{
+                this.getDrinks()
+            })
+        }
 
         tryAddDrink(){
             let modal:any = this.$uibModal;
@@ -26,14 +37,11 @@ namespace individualProject.Controllers{
                 controller:individualProject.Controllers.AddDrinkController,
                 controllerAs:'vm',
                 size:'ml'
-            });
-            modal.result.then(function(){
-                console.log('then')
-            }).catch(function(){
-                console.log('catch')
-            }).finally(function(){
-                console.log('finally')
-            });
+            })
+            .result
+            .then(() =>{
+                this.getDrinks()
+            })
 
         }
 
@@ -44,7 +52,12 @@ namespace individualProject.Controllers{
                 controllerAs:'vm',
                 size:'ml'
             })
+            .result
+            .then(()=>{
+                this.getDrinks()
+            })
         }
+
 
 
     }

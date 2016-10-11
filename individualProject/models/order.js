@@ -1,6 +1,10 @@
 "use strict";
 var mongoose = require('mongoose');
 var orderSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
     foods: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Food'
@@ -11,7 +15,8 @@ var orderSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        required: true
+        required: false,
+        default: new Date()
     }
 });
 Object.defineProperty(exports, "__esModule", { value: true });

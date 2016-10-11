@@ -100,10 +100,25 @@ router.post('/register', (req, res) =>{
         newUser
         .save()
         .then((user) =>{
-            res.send(user);
+            console.log('user created!!!')
+            let newOrder = new Order();
+            newOrder.userId=user._id;
+            newOrder.save()
+            .then(() =>{
+                console.log('!!!order created!!')
+                res.send(user);
+            })
+            .catch(() =>{
+                console.log('!!order not created!')
+                res.sendStatus(400);
+            })
+
+
+            //res.send(user);
         //    res.sendStatus(201);
         })
         .catch((err) =>{
+            console.log('user not created')
             res.send(err);
         })
     }

@@ -4,6 +4,7 @@ var passport = require('passport');
 var passportLocal = require('passport-local');
 var user_1 = require('../models/user');
 var mongodb = require('mongodb');
+var order_1 = require('../models/order');
 var ObjectId = mongodb.ObjectID;
 var router = express.Router();
 var LocalStrategy = passportLocal.Strategy;
@@ -75,9 +76,21 @@ router.post('/register', function (req, res) {
         newUser
             .save()
             .then(function (user) {
-            res.send(user);
+            console.log('user created!!!');
+            var newOrder = new order_1.default();
+            newOrder.userId = user._id;
+            newOrder.save()
+                .then(function () {
+                console.log('!!!order created!!');
+                res.send(user);
+            })
+                .catch(function () {
+                console.log('!!order not created!');
+                res.sendStatus(400);
+            });
         })
             .catch(function (err) {
+            console.log('user not created');
             res.send(err);
         });
     }

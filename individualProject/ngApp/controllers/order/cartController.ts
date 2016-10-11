@@ -1,22 +1,35 @@
 namespace individualProject.Controllers{
     export class CartController{
-        public message = 'hello from cart controller';
+        public message = 'Let us see what in your cart';
         public orders;
-
+        public order;
+        public sum;
         constructor(
             private cartService:individualProject.Services.CartService,
             private $state: ng.ui.IStateService
         ){
             this.getOrders();
+
+        }
+
+        getSum(item){
+            this.sum += item;
+            demo.innerHTML=this.sum;
         }
         getOrders(){
-            this.orders = this.cartService.getOrdersOnService()
+            this.cartService.getOrdersOnService()
             .then((orders) =>{
+                console.log(orders);
                 this.orders = orders;
             })
             .catch(() =>{
                 this.$state.go('login');
             })
         }
+
+        getOrder(){
+            this.order = this.cartService.getOrderOnService
+        }
+
     }
 }

@@ -1,10 +1,26 @@
 <h1>{{vm.message}}</h1>
-hello
-<div ng-repeat='order in vm.orders'>
-<a href="#">{{order.state}}</a> - {{order.date}}
-    <div ng-repeat="food in order.foods">
-         {{food.name}} - {{food.price}}
+
+<p>
+    You created your orden at:
+</p>
+<div>
+{{vm.orders.date}}
+<h2>
+    Order Summary:
+</h2>
+</div>
+
+    <div ng-repeat="food in vm.orders.foods">
+         {{food.name}} - {{food.price|currency}}
 
     </div>
 
+
+
+<h2>Total:</h2>
+{{vm.sum}};
+
+
+<div class="">
+    <button type="button" name="button">Pay</button>
 </div>

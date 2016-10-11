@@ -6,18 +6,26 @@ var individualProject;
             function CartController(cartService, $state) {
                 this.cartService = cartService;
                 this.$state = $state;
-                this.message = 'hello from cart controller';
+                this.message = 'Let us see what in your cart';
                 this.getOrders();
             }
+            CartController.prototype.getSum = function (item) {
+                this.sum += item;
+                demo.innerHTML = this.sum;
+            };
             CartController.prototype.getOrders = function () {
                 var _this = this;
-                this.orders = this.cartService.getOrdersOnService()
+                this.cartService.getOrdersOnService()
                     .then(function (orders) {
+                    console.log(orders);
                     _this.orders = orders;
                 })
                     .catch(function () {
                     _this.$state.go('login');
                 });
+            };
+            CartController.prototype.getOrder = function () {
+                this.order = this.cartService.getOrderOnService;
             };
             return CartController;
         }());

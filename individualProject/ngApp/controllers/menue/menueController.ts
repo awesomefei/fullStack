@@ -3,6 +3,10 @@ namespace individualProject.Controllers{
         public message="Hello from menuController";
         public menues = [];
 
+        private orderId;
+        private food;
+        private foodId;
+
         constructor(
             private $state:ng.ui.IStateService,
             private $uibModal: ng.ui.bootstrap.IModalService,
@@ -10,10 +14,16 @@ namespace individualProject.Controllers{
             //private orderService: individualProject.Services.CartService
         ){
             this.getMenues();
+            //this.getFood();
             }
 
-        addFoodToCart(){
+        saveFood(foodId){
+            console.log('!!!!!!!!!!!!!! in savefodd on controller')
+            this.menueService.saveFoodOnServiceSide(foodId);
+        }
 
+        getFood(){
+            this.food = this.menueService.getMenueOnServiceSide(this.foodId);
         }
 
         getMenues(){

@@ -11,7 +11,12 @@ var individualProject;
                 this.menues = [];
                 this.getMenues();
             }
-            MenueController.prototype.addFoodToCart = function () {
+            MenueController.prototype.saveFood = function (foodId) {
+                console.log('!!!!!!!!!!!!!! in savefodd on controller');
+                this.menueService.saveFoodOnServiceSide(foodId);
+            };
+            MenueController.prototype.getFood = function () {
+                this.food = this.menueService.getMenueOnServiceSide(this.foodId);
             };
             MenueController.prototype.getMenues = function () {
                 var _this = this;

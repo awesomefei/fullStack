@@ -14,8 +14,18 @@ namespace individualProject.Services{
         private contriesResource;
         constructor(private $resource:ng.resource.IResourceService){
 
-            this.menueResource = $resource('/api/foods/:id');
+            this.menueResource = $resource('/api/foods/:id',null, {
+                saveFood:{
+                    method:'POST',
+                    url:'/api/orders/addfood/:foodId'
+                }
+            });
             this.contriesResource = $resource('/api/countries/:id');
+        }
+        saveFoodOnServiceSide(foodId){
+            console.log('!!!!!!!!!!!!!! in savefodd on service')
+
+            return this.menueResource.saveFood({foodId:foodId}, null)
         }
         //read
         getMenuesOnServiceSide(){

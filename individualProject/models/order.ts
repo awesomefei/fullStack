@@ -7,14 +7,15 @@ export interface IOrder extends mongoose.Document{
     state:string;
     date:Date;
     foods:Food.IFood[];
+    userId:mongoose.Schema.Types.ObjectId;
 
 }
 
 let orderSchema = new mongoose.Schema({
-    // users:[{
-    //     type:mongoose.Schema.Types.ObjectId,
-    //     ref:'User'
-    // }],
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'User'
+    },
     foods:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Food'
@@ -25,7 +26,8 @@ let orderSchema = new mongoose.Schema({
     },
     date: {
         type: Date,
-        required: true
+        required: false,
+        default:new Date()
     }
 })
 export default mongoose.model<IOrder>('Order', orderSchema);

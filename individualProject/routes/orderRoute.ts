@@ -8,11 +8,15 @@ let ObjectId = mongodb.ObjectID;
 let orderRoute = express.Router();
 
 orderRoute.get('/', authorize, (req, res) =>{
-    Order.find()
+    console.log(req.user.id);
+    let userId = new ObjectId(req.user.id)
+
+    Order.findOne()
+    .where({userId:userId})
     //.where('userId').equals()
     .populate('foods')
     .then((orders) =>{
-
+        console.log(orders);
         res.send(orders);
     })
     .catch((err) =>{
@@ -34,19 +38,22 @@ orderRoute.post('/', authorize,(req,res) =>{
     });
 });
 
-orderRoute.post('/addfood/:orderId', (req, res) =>{
-    let orderId = new ObjectId(req.params['orderId']);
-    let foodId = new ObjectId(req.body.foodId);
+orderRoute.post('/addfood/:foodId', authorize, (req, res) =>{
+    //let orderId = new ObjectId(req.params['orderId']);
+    let foodId = new ObjectId(req.params['foodId']);
+    console.log('------')
+    console.log(req.user.id);
 
-    Order.update({_id:orderId}, {$push:{foods:foodId}})
+    let userId = new ObjectId(req.user.id);
 
-    .then((order) =>{
-        console.log(this.foods);
-        res.sendStatus(201);
-    })
-    .catch((err) =>{
-        res.sendStatus(400).send(err);
-    })
+    Order.update({userId:userId}, {$push:{foods:foodId}})
+        .then((order) =>{
+            console.log(order);
+            res.sendStatus(201);
+        })
+        .catch((err) =>{
+            res.sendStatus(400).send(err);
+        });
 
 
 
@@ -62,6 +69,8 @@ function authorize(req,res,next){
         if(err ){
             res.sendStatus(401);
         }else{
+            req.user=decoded;
+
             console.log(decoded);
             next();
         }

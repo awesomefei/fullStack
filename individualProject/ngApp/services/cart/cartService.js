@@ -7,8 +7,10 @@ var individualProject;
                 this.$resource = $resource;
                 this.cartResource = $resource('/api/orders');
             }
+            CartService.prototype.getOrderOnService = function () {
+            };
             CartService.prototype.getOrdersOnService = function () {
-                return this.cartResource.query().$promise;
+                return this.cartResource.get().$promise;
             };
             return CartService;
         }());

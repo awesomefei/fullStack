@@ -6,7 +6,7 @@ var individualProject;
             function DrinkService($window, $resource) {
                 this.$window = $window;
                 this.$resource = $resource;
-                this.drinkResource = this.$resource('/api/drinks:id', null, {
+                this.drinkResource = this.$resource('/api/drinks/:id', null, {
                     edit: {
                         method: 'PUT',
                         url: '/api/drinks'

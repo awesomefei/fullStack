@@ -5,9 +5,18 @@ var individualProject;
         var MenueService = (function () {
             function MenueService($resource) {
                 this.$resource = $resource;
-                this.menueResource = $resource('/api/foods/:id');
+                this.menueResource = $resource('/api/foods/:id', null, {
+                    saveFood: {
+                        method: 'POST',
+                        url: '/api/orders/addfood/:foodId'
+                    }
+                });
                 this.contriesResource = $resource('/api/countries/:id');
             }
+            MenueService.prototype.saveFoodOnServiceSide = function (foodId) {
+                console.log('!!!!!!!!!!!!!! in savefodd on service');
+                return this.menueResource.saveFood({ foodId: foodId }, null);
+            };
             MenueService.prototype.getMenuesOnServiceSide = function () {
                 return this.menueResource.query().$promise;
             };

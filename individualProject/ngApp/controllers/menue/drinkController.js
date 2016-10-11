@@ -16,28 +16,44 @@ var individualProject;
             DrinkController.prototype.getDrinks = function () {
                 this.drinks = this.drinkService.getDrinksOnService();
             };
+            DrinkController.prototype.tryDeleteDrink = function () {
+                var _this = this;
+                this.$uibModal.open({
+                    templateUrl: '/ngApp/views/drinkButton/deleteDrink.html',
+                    controller: individualProject.Controllers.DeleteDrinkController,
+                    controllerAs: 'vm',
+                    size: 'ml'
+                })
+                    .result
+                    .then(function () {
+                    _this.getDrinks();
+                });
+            };
             DrinkController.prototype.tryAddDrink = function () {
+                var _this = this;
                 var modal = this.$uibModal;
                 modal.open({
                     templateUrl: '/ngApp/views/drinkButton/addDrink.html',
                     controller: individualProject.Controllers.AddDrinkController,
                     controllerAs: 'vm',
                     size: 'ml'
-                });
-                modal.result.then(function () {
-                    console.log('then');
-                }).catch(function () {
-                    console.log('catch');
-                }).finally(function () {
-                    console.log('finally');
+                })
+                    .result
+                    .then(function () {
+                    _this.getDrinks();
                 });
             };
             DrinkController.prototype.tryEditDrink = function () {
+                var _this = this;
                 this.$uibModal.open({
                     templateUrl: '/ngApp/views/drinkButton/editDrink.html',
                     controller: individualProject.Controllers.EditDrinkController,
                     controllerAs: 'vm',
                     size: 'ml'
+                })
+                    .result
+                    .then(function () {
+                    _this.getDrinks();
                 });
             };
             return DrinkController;

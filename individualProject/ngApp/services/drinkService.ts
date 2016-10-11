@@ -6,7 +6,7 @@ namespace individualProject.Services{
 
             private $resource:ng.resource.IResourceService
         ){
-            this.drinkResource = this.$resource('/api/drinks:id', null, {
+            this.drinkResource = this.$resource('/api/drinks/:id', null, {
                 edit:{
                     method:'PUT',
                     url:'/api/drinks'

@@ -1,5 +1,4 @@
 "use strict";
-var _this = this;
 var express = require('express');
 var mongodb = require('mongodb');
 var order_1 = require('../models/order');
@@ -7,9 +6,13 @@ var jwt = require('jsonwebtoken');
 var ObjectId = mongodb.ObjectID;
 var orderRoute = express.Router();
 orderRoute.get('/', authorize, function (req, res) {
-    order_1.default.find()
+    console.log(req.user.id);
+    var userId = new ObjectId(req.user.id);
+    order_1.default.findOne()
+        .where({ userId: userId })
         .populate('foods')
         .then(function (orders) {
+        console.log(orders);
         res.send(orders);
     })
         .catch(function (err) {
@@ -28,12 +31,14 @@ orderRoute.post('/', authorize, function (req, res) {
         res.status(400).send(err);
     });
 });
-orderRoute.post('/addfood/:orderId', function (req, res) {
-    var orderId = new ObjectId(req.params['orderId']);
-    var foodId = new ObjectId(req.body.foodId);
-    order_1.default.update({ _id: orderId }, { $push: { foods: foodId } })
+orderRoute.post('/addfood/:foodId', authorize, function (req, res) {
+    var foodId = new ObjectId(req.params['foodId']);
+    console.log('------');
+    console.log(req.user.id);
+    var userId = new ObjectId(req.user.id);
+    order_1.default.update({ userId: userId }, { $push: { foods: foodId } })
         .then(function (order) {
-        console.log(_this.foods);
+        console.log(order);
         res.sendStatus(201);
     })
         .catch(function (err) {
@@ -49,6 +54,7 @@ function authorize(req, res, next) {
             res.sendStatus(401);
         }
         else {
+            req.user = decoded;
             console.log(decoded);
             next();
         }
