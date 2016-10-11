@@ -7,6 +7,8 @@ import Food from '../models/food';
 let ObjectId = mongodb.ObjectID;
 let orderRoute = express.Router();
 
+
+
 orderRoute.get('/', authorize, (req, res) =>{
     console.log("%%%$$###@" +req.user.id);
     let userId = new ObjectId(req.user.id)
@@ -61,11 +63,22 @@ orderRoute.post('/addfood/:foodId', authorize, (req, res) =>{
 
 })
 
+orderRoute.put('/', authorize,(req, res) =>{
+    let orderId = new ObjectId(req.body._id);
+    console.log('orderRoute remove all the foods' + req.body._id);
+    console.log('orderRoute remove all the foods' + req.body.userId);
+
+    Order.update({_id:orderId}, {$set:{foods:[]}}, function(err, affected){
+        console.log('affected: ', affected);
+        res.sendStatus(200);
+    });
+});
+
 
 function authorize(req,res,next){
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!! order router');
     let token = req['token'];
-    console.log(token);
+    //console.log(token);
 
     jwt.verify(token,'SuperSecret', function(err, decoded){
         if(err ){
@@ -73,7 +86,7 @@ function authorize(req,res,next){
         }else{
             req.user=decoded;
 
-            console.log(decoded);
+        //    console.log(decoded);
             next();
         }
     });

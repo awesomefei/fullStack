@@ -17,10 +17,10 @@
 
 
 
-<h2>Total:</h2>
-{{vm.sum}};
+<h2>Total: {{vm.sum|currency}}</h2>
+
 
 
 <div class="">
-    <button type="button" name="button">Pay</button>
+    <button type="button" ng-click='vm.clearOrder()'>Pay</button>
 </div>
