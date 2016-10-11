@@ -23,8 +23,6 @@ namespace individualProject.Services{
             this.contriesResource = $resource('/api/countries/:id');
         }
         saveFoodOnServiceSide(foodId){
-            console.log('!!!!!!!!!!!!!! in savefodd on service')
-
             return this.menueResource.saveFood({foodId:foodId}, null)
         }
         //read

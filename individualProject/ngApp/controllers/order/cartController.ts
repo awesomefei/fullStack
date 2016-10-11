@@ -13,8 +13,8 @@ namespace individualProject.Controllers{
         }
 
         getSum(item){
-            this.sum += item;
-            demo.innerHTML=this.sum;
+
+
         }
         getOrders(){
             this.cartService.getOrdersOnService()

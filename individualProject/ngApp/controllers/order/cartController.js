@@ -10,8 +10,6 @@ var individualProject;
                 this.getOrders();
             }
             CartController.prototype.getSum = function (item) {
-                this.sum += item;
-                demo.innerHTML = this.sum;
             };
             CartController.prototype.getOrders = function () {
                 var _this = this;

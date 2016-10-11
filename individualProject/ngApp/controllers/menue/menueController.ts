@@ -18,7 +18,6 @@ namespace individualProject.Controllers{
             }
 
         saveFood(foodId){
-            console.log('!!!!!!!!!!!!!! in savefodd on controller')
             this.menueService.saveFoodOnServiceSide(foodId);
         }
 

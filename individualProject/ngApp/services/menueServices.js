@@ -14,7 +14,6 @@ var individualProject;
                 this.contriesResource = $resource('/api/countries/:id');
             }
             MenueService.prototype.saveFoodOnServiceSide = function (foodId) {
-                console.log('!!!!!!!!!!!!!! in savefodd on service');
                 return this.menueResource.saveFood({ foodId: foodId }, null);
             };
             MenueService.prototype.getMenuesOnServiceSide = function () {

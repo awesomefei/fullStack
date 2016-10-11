@@ -12,7 +12,6 @@ var individualProject;
                 this.getMenues();
             }
             MenueController.prototype.saveFood = function (foodId) {
-                console.log('!!!!!!!!!!!!!! in savefodd on controller');
                 this.menueService.saveFoodOnServiceSide(foodId);
             };
             MenueController.prototype.getFood = function () {
