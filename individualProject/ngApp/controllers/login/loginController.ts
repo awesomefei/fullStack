@@ -12,7 +12,7 @@ namespace individualProject.Controllers{
             console.log("@@@@@@@@@@@@ LoginController + " + this.loginInfo);
             this.loginService.login(this.loginInfo)
             .then(() =>{
-                this.$state.go('cart');
+                this.$state.go('menue');
             })
             .catch(() =>{
                 alert('login failed');

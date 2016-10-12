@@ -41,7 +41,7 @@ let userSchema = new mongoose.Schema({
         type:Boolean,
         //what's default mean?
     //why once i set it as true, it can not change to false
-        default:true,
+        default:false,
         required:false,
     }
 

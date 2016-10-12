@@ -13,7 +13,7 @@ var individualProject;
                 console.log("@@@@@@@@@@@@ LoginController + " + this.loginInfo);
                 this.loginService.login(this.loginInfo)
                     .then(function () {
-                    _this.$state.go('cart');
+                    _this.$state.go('menue');
                 })
                     .catch(function () {
                     alert('login failed');
