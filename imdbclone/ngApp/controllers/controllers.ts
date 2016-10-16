@@ -4,11 +4,16 @@ namespace imdbclone.Controllers {
         public message = 'Hello from the home page!';
         public girlMovie;
         public homeMovies;
+        public twitters;
         constructor(
             private homeMovieService:imdbclone.Services.HomeMovieService,
         ){
             this.getGirlMovie();
             this.getHomeMovies();
+            this.getTwitters();
+        }
+        getTwitters(){
+            this.twitters = this.homeMovieService.getTwitterOnService();
         }
         getHomeMovies(){
             console.log('before');

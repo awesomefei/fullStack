@@ -4,6 +4,7 @@ var imdbclone;
     (function (Services) {
         var HomeMovieService = (function () {
             function HomeMovieService($resource) {
+                this.twiResource = $resource('/api/twitters');
                 this.homeMovieResource = $resource('/api/homeMovies/:id', null, {
                     saveComment: {
                         method: 'POST',
@@ -12,9 +13,12 @@ var imdbclone;
                     saveDirector: {
                         method: 'POST',
                         url: '/api/homeMoves/direcor/:homeMovieId'
-                    }
+                    },
                 });
             }
+            HomeMovieService.prototype.getTwitterOnService = function () {
+                return this.twiResource.query();
+            };
             HomeMovieService.prototype.getHomeMoviesOnService = function () {
                 return this.homeMovieResource.query();
             };

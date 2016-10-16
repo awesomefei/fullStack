@@ -8,7 +8,11 @@ var imdbclone;
                 this.message = 'Hello from the home page!';
                 this.getGirlMovie();
                 this.getHomeMovies();
+                this.getTwitters();
             }
+            HomeController.prototype.getTwitters = function () {
+                this.twitters = this.homeMovieService.getTwitterOnService();
+            };
             HomeController.prototype.getHomeMovies = function () {
                 console.log('before');
                 this.homeMovies = this.homeMovieService.getHomeMoviesOnService();

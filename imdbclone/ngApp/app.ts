@@ -1,6 +1,6 @@
 namespace imdbclone {
 
-    angular.module('imdbclone', ['ui.router', 'ngResource', 'ui.bootstrap','youtube-embed']).config((
+    angular.module('imdbclone', ['ui.router', 'ngResource', 'ui.bootstrap','youtube-embed','ngTwitter', 'ngCordova']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider

@@ -22,6 +22,8 @@ import homeMovieRoute from './routes/homeMovieRoute';
 import directorRoute from './routes/directorRoute';
 import tagRoute from './routes/tagRoute';
 import watchlistRoute from './routes/watchlistRoute';
+import twitterRoute from './routes/twitterRoute';
+
 
 Database.connect();
 let app = express();
@@ -59,7 +61,7 @@ app.use('/api/homeMovies', homeMovieRoute);
 app.use('/api/directors', directorRoute);
 app.use('/api/tags', tagRoute);
 app.use('/api/watchlist', watchlistRoute);
-
+app.use('/api/twitters', twitterRoute);
 
 // redirect 404 to home for the sake of AngularJS client-side routes
 app.get('/*', function(req, res, next) {

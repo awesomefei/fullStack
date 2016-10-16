@@ -1,9 +1,11 @@
 namespace imdbclone.Services{
     export class HomeMovieService{
         private homeMovieResource;
+        private twiResource;
         constructor(
         $resource:ng.resource.IResourceService
     ){
+        this.twiResource = $resource('/api/twitters');
         this.homeMovieResource = $resource('/api/homeMovies/:id', null, {
             saveComment:{
                 method:'POST',
@@ -12,9 +14,16 @@ namespace imdbclone.Services{
             saveDirector:{
                 method: 'POST',
                 url:'/api/homeMoves/direcor/:homeMovieId'
-            }
+            },
+
+
         });
     }
+    getTwitterOnService(){
+        return this.twiResource.query();
+    }
+
+
     getHomeMoviesOnService(){
         return this.homeMovieResource.query();
     }

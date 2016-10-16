@@ -1,6 +1,6 @@
 var imdbclone;
 (function (imdbclone) {
-    angular.module('imdbclone', ['ui.router', 'ngResource', 'ui.bootstrap', 'youtube-embed']).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    angular.module('imdbclone', ['ui.router', 'ngResource', 'ui.bootstrap', 'youtube-embed', 'ngTwitter', 'ngCordova']).config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('home', {
             url: '/',
