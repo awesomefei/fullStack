@@ -48,8 +48,6 @@ orderRoute.post('/addfood/:foodId', authorize, function (req, res) {
 });
 orderRoute.put('/', authorize, function (req, res) {
     var orderId = new ObjectId(req.body._id);
-    console.log('orderRoute remove all the foods' + req.body._id);
-    console.log('orderRoute remove all the foods' + req.body.userId);
     order_1.default.update({ _id: orderId }, { $set: { foods: [] } }, function (err, affected) {
         console.log('affected: ', affected);
         res.sendStatus(200);

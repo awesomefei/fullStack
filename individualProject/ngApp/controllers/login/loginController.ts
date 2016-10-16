@@ -1,7 +1,6 @@
 namespace individualProject.Controllers{
     export class LoginController{
         public loginInfo;
-        public message ='Hello from login Controller';
         constructor(private loginService: individualProject.Services.LoginService,
                     private $state: ng.ui.IStateService
                 ){

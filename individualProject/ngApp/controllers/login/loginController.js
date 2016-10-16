@@ -6,7 +6,6 @@ var individualProject;
             function LoginController(loginService, $state) {
                 this.loginService = loginService;
                 this.$state = $state;
-                this.message = 'Hello from login Controller';
             }
             LoginController.prototype.login = function () {
                 var _this = this;
