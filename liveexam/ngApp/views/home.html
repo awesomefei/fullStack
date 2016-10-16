@@ -1,0 +1,30 @@
+<h2>Home</h2>
+<p>
+    {{controller.message}}
+</p>
+
+<table ng-repeat='m in controller.cars'>
+    <tr>
+        <th>
+            Make
+        </th>
+        <th>
+            Year
+        </th>
+        <th>
+            Brand
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            {{m.make}}
+        </td>
+        <td>
+            {{m.year}}
+        </td>
+        <td>
+            {{m.brand}}
+        </td>
+    </tr>
+</table>

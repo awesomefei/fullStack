@@ -1,0 +1,23 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <!-- <h2>{{vm.message}}</h2> -->
+    <!-- <ul>
+        <li ng-repeat ='car in vm.cars'>
+            <img src='{{car.ImageUrl}}'height=100 width=80 />
+          {{car.FullDescription}}
+        </li>
+    </ul> -->
+    <!-- <div class="bar bar-header bar-stable">
+        <h1 class="title">{{vm.message}}</h1>
+    </div> -->
+
+    <div class="list">
+
+    <a class="item item-avatar" href="#" ng-repeat='car in vm.cars'>
+      <img src="{{car.ImageUrl}}">
+      <h2>{{car.ShortDescription}}</h2>
+      <p>{{car.FullDescription}}</p>
+    </a>
+</div>
+  </ion-content>
+</ion-view>
