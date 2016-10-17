@@ -36,6 +36,15 @@
 
 
 
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+}
 
 *{
 	padding:0;
@@ -55,10 +64,19 @@ a{
 	a:hover{
 		color:#999;
 	}
-p{
+.font{
+	font-family: font-family: 'Open Sans', sans-serif;
+	font-size:18px;
 	line-height: 2em;
 	margin:0 0 20px;
-	text-align: center;
+	text-align: left;
+}
+p {
+	font-family: font-family: 'Open Sans', sans-serif;
+	font-size:18px;
+	line-height: 2em;
+	margin:0 0 20px;
+	text-align: left;
 }
 
 #typedDiv {
