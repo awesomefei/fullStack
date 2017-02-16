@@ -1,7 +1,7 @@
 "use strict";
-var express = require('express');
-var mongodb = require('mongodb');
-var drink_1 = require('../models/drink');
+var express = require("express");
+var mongodb = require("mongodb");
+var drink_1 = require("../models/drink");
 var drinkRoute = express.Router();
 var ObjectId = mongodb.ObjectID;
 drinkRoute.get('/', function (req, res) {

@@ -27,7 +27,8 @@ var individualProject;
                     _this.$http
                         .post('/api/users/login', loginInfo)
                         .then(function (data) {
-                        console.log("!!!!!!!!!!!!!loginService" + data.data.username);
+                        console.log("!!!!!!!!!!!!!loginService" +
+                            data.data.username);
                         var token = data.data.token;
                         var admin = data.data.admin;
                         var username = data.data.username;

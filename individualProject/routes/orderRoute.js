@@ -1,8 +1,8 @@
 "use strict";
-var express = require('express');
-var mongodb = require('mongodb');
-var order_1 = require('../models/order');
-var jwt = require('jsonwebtoken');
+var express = require("express");
+var mongodb = require("mongodb");
+var order_1 = require("../models/order");
+var jwt = require("jsonwebtoken");
 var ObjectId = mongodb.ObjectID;
 var orderRoute = express.Router();
 orderRoute.get('/', authorize, function (req, res) {

@@ -55,7 +55,6 @@ foodRouter.post('/', (req,res) =>{
         .catch((err) =>{
             res.sendStatus(500);
         })
-
 });
 
 foodRouter.delete('/:id', (req,res) =>{
@@ -72,7 +71,5 @@ foodRouter.delete('/:id', (req,res) =>{
         res.sendStatus(400);
     }
 });
-
-
 
 export default foodRouter;

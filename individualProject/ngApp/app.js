@@ -1,6 +1,7 @@
 var individualProject;
 (function (individualProject) {
-    angular.module('individualProject', ['ui.router', 'ngResource', 'ui.bootstrap']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    angular.module('individualProject', ['ui.router', 'ngResource',
+        'ui.bootstrap']).config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
         $stateProvider
             .state('home', {
             url: '/',
@@ -65,14 +66,14 @@ var individualProject;
         $httpProvider.interceptors.push('BearerAuthInterceptor');
     });
 })(individualProject || (individualProject = {}));
-angular
-    .module('individualProject')
+angular.module('individualProject')
     .factory('BearerAuthInterceptor', function ($window, $q) {
     return {
         request: function (config) {
             config.headers = config.headers || {};
             if ($window.localStorage.getItem('token')) {
-                config.headers.Authorization = 'Bearer ' + $window.localStorage.getItem('token');
+                config.headers.Authorization = 'Bearer ' +
+                    $window.localStorage.getItem('token');
             }
             return config || $q.when(config);
         },

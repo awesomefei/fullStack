@@ -7,8 +7,6 @@ import Food from '../models/food';
 let ObjectId = mongodb.ObjectID;
 let orderRoute = express.Router();
 
-
-
 orderRoute.get('/', authorize, (req, res) =>{
     console.log("%%%$$###@" +req.user.id);
     let userId = new ObjectId(req.user.id)
@@ -30,7 +28,6 @@ orderRoute.post('/', authorize,(req,res) =>{
     let order = new Order();
     order.date = new Date();
     order.state = req.body.state;
-
     order.save()
         .then((order) =>{
             res.status(201).send(order);
@@ -46,10 +43,7 @@ orderRoute.post('/addfood/:foodId', authorize, (req, res) =>{
     console.log('----------------------------')
     console.log('req.user.id' + req.user.id);
     console.log('foodId' +req.params['foodId']);
-
-
     let userId = new ObjectId(req.user.id);
-
     Order.update({userId:userId}, {$push:{foods:foodId}})
         .then((order) =>{
             console.log('order' + order);
@@ -58,33 +52,26 @@ orderRoute.post('/addfood/:foodId', authorize, (req, res) =>{
         .catch((err) =>{
             res.sendStatus(400).send(err);
         });
-
-
-
 })
 
 orderRoute.put('/', authorize,(req, res) =>{
     let orderId = new ObjectId(req.body._id);
-
     Order.update({_id:orderId}, {$set:{foods:[]}}, function(err, affected){
         console.log('affected: ', affected);
         res.sendStatus(200);
     });
 });
 
-
 function authorize(req,res,next){
     console.log('!!!!!!!!!!!!!!!!!!!!!!!!! order router');
     let token = req['token'];
     //console.log(token);
-
     jwt.verify(token,'SuperSecret', function(err, decoded){
         if(err ){
             res.sendStatus(401);
         }else{
             req.user=decoded;
-
-        //    console.log(decoded);
+        //console.log(decoded);
             next();
         }
     });

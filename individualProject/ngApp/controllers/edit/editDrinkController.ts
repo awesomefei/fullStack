@@ -9,7 +9,6 @@ namespace individualProject.Controllers{
             private $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance,
 
         ){
-
             //this.getDrink();
         }
         getDrink(){
@@ -24,8 +23,6 @@ namespace individualProject.Controllers{
             .catch(() =>{
                 alert('something went wrong in editDrink');
             })
-
         }
     }
-
 }

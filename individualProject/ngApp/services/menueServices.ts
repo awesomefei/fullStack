@@ -8,12 +8,10 @@ namespace individualProject.Services{
         getContriesOnServiceSide();
     }
 
-
     export  class MenueService implements IMenueService{
         private menueResource;
         private contriesResource;
         constructor(private $resource:ng.resource.IResourceService){
-
             this.menueResource = $resource('/api/foods/:id',null, {
                 saveFood:{
                     method:'POST',
@@ -42,11 +40,9 @@ namespace individualProject.Services{
         deleteMenueOnServerSide(menueId){
             return this.menueResource.delete({id:menueId}).$promise;
         }
-
         getContriesOnServiceSide(){
             return this.contriesResource.query();
         }
-
     }
     angular.module('individualProject').service('menueService', MenueService);
 }

@@ -1,10 +1,10 @@
 "use strict";
-var express = require('express');
-var passport = require('passport');
-var passportLocal = require('passport-local');
-var user_1 = require('../models/user');
-var mongodb = require('mongodb');
-var order_1 = require('../models/order');
+var express = require("express");
+var passport = require("passport");
+var passportLocal = require("passport-local");
+var user_1 = require("../models/user");
+var mongodb = require("mongodb");
+var order_1 = require("../models/order");
 var ObjectId = mongodb.ObjectID;
 var router = express.Router();
 var LocalStrategy = passportLocal.Strategy;
@@ -17,8 +17,7 @@ passport.deserializeUser(function (id, done) {
     });
 });
 passport.use(new LocalStrategy(function (username1, password, done) {
-    user_1.default
-        .findOne({ username: username1.trim().toLowerCase() })
+    user_1.default.findOne({ username: username1.trim().toLowerCase() })
         .then(function (user) {
         if (!user) {
             return done(null, false, { message: 'incorrect username!' });
@@ -42,7 +41,6 @@ router.get('/', function (req, res, next) {
     });
 });
 router.post('/addorders/:userId', function (req, res) {
-    console.log('________________________________');
     var userId = new ObjectId(req.params['userId']);
     console.log("userId  " + userId);
     var orderId = new ObjectId(req.body.orderId);
@@ -58,12 +56,13 @@ router.post('/addorders/:userId', function (req, res) {
     });
 });
 router.post('/register', function (req, res) {
+    var errors = req.validationErrors();
     req.checkBody('username', 'Username is required').notEmpty();
     req.checkBody('email', 'Email is  required').notEmpty();
     req.checkBody('email', 'Email is not valid').isEmail();
     req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('confirmPassword', 'Password do not match').equals(req.body.password);
-    var errors = req.validationErrors();
+    req.checkBody('confirmPassword', 'Password do not match')
+        .equals(req.body.password);
     if (errors) {
         console.log(errors[0].msg);
         res.status(400).send(errors);
@@ -73,8 +72,7 @@ router.post('/register', function (req, res) {
         newUser.username = req.body.username;
         newUser.email = req.body.email;
         newUser.setPassword(req.body.password);
-        newUser
-            .save()
+        newUser.save()
             .then(function (user) {
             console.log('user created!!!');
             var newOrder = new order_1.default();

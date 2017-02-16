@@ -1,5 +1,4 @@
 <h1>{{vm.message}}</h1>
-
 <p>
     You created your orden at:
 </p>
@@ -9,18 +8,10 @@
     Order Summary:
 </h2>
 </div>
-
-    <div ng-repeat="food in vm.orders.foods">
-         {{food.name}} - {{food.price|currency}}
-
-    </div>
-
-
-
+<div ng-repeat="food in vm.orders.foods">
+    {{food.name}} - {{food.price|currency}}
+</div>
 <h2>Total: {{vm.sum|currency}}</h2>
-
-
-
 <div class="">
     <button type="button" ng-click='vm.clearOrder()'>Pay</button>
 </div>

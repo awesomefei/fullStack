@@ -1,7 +1,7 @@
 "use strict";
-var express = require('express');
-var mongodb = require('mongodb');
-var food_1 = require('../models/food');
+var express = require("express");
+var mongodb = require("mongodb");
+var food_1 = require("../models/food");
 var foodRouter = express.Router();
 var ObjectId = mongodb.ObjectID;
 foodRouter.get('/', function (req, res) {

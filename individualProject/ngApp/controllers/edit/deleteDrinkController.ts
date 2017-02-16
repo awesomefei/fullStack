@@ -9,7 +9,6 @@ namespace individualProject.Controllers{
             private $uibModalInstance: ng.ui.bootstrap.IModalServiceInstance,
 
         ){
-
             //this.getDrink();
         }
         getDrink(){
@@ -21,7 +20,5 @@ namespace individualProject.Controllers{
                 this.$uibModalInstance.close();
             })
         }
-
     }
-
 }

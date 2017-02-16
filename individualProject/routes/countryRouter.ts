@@ -4,7 +4,6 @@ import database from '../db';
 import Country from '../models/contry';
 
 let ObjectId = mongodb.ObjectID;
-
 let countryRouter = express.Router();
 
 countryRouter.get('/', (req, res) =>{
@@ -72,6 +71,5 @@ countryRouter.delete('/:id', (req, res) =>{
         res.sendStatus(400);
     }
 })
-
 
 export default countryRouter;

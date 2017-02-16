@@ -65,11 +65,4 @@ drinkRoute.delete('/:id', (req, res) =>{
     });
 });
 
-
-
-
-
-
-
-
 export default drinkRoute;

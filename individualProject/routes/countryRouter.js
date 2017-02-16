@@ -1,7 +1,7 @@
 "use strict";
-var express = require('express');
-var mongodb = require('mongodb');
-var contry_1 = require('../models/contry');
+var express = require("express");
+var mongodb = require("mongodb");
+var contry_1 = require("../models/contry");
 var ObjectId = mongodb.ObjectID;
 var countryRouter = express.Router();
 countryRouter.get('/', function (req, res) {

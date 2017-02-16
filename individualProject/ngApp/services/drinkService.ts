@@ -3,7 +3,6 @@ namespace individualProject.Services{
         private drinkResource;
         constructor(
             private $window:ng.IWindowService,
-
             private $resource:ng.resource.IResourceService
         ){
             this.drinkResource = this.$resource('/api/drinks/:id', null, {
@@ -13,10 +12,11 @@ namespace individualProject.Services{
                 }
             });
         }
+
         isAdmin(){
             return this.$window.localStorage.getItem('admin');
-
         }
+
         getDrinksOnService(){
             return this.drinkResource.query();
         }
@@ -28,9 +28,11 @@ namespace individualProject.Services{
         saveDrinkOnService(drink){
             return this.drinkResource.save(drink).$promise;
         }
+
         deletDrinkOnService(id){
             return this.drinkResource.delete({id:id}).$promise;
         }
+
         editDrinkOnService(drink){
             console.log(drink);
             return this.drinkResource.edit(drink).$promise;
