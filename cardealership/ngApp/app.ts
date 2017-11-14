@@ -27,8 +27,6 @@ namespace cardealership {
                 controllerAs:'controller'
 
             })
-
-
             .state('notFound', {
                 url: '/notFound',
                 templateUrl: '/ngApp/views/notFound.html'
@@ -40,7 +38,5 @@ namespace cardealership {
         // Enable HTML5 navigation
         $locationProvider.html5Mode(true);
     });
-
-
 
 }
